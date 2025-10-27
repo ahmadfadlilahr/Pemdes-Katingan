@@ -9,8 +9,13 @@ use Illuminate\Support\Facades\Route;
 // Public Routes
 Route::get('/', [PublicController::class, 'home'])->name('home');
 Route::get('/berita', [PublicController::class, 'news'])->name('news');
+Route::get('/berita/{slug}', [PublicController::class, 'newsShow'])->name('news.show');
 Route::get('/agenda', [PublicController::class, 'agenda'])->name('agenda');
+Route::get('/agenda/{id}', [PublicController::class, 'agendaShow'])->name('agenda.show');
 Route::get('/dokumen', [PublicController::class, 'documents'])->name('documents');
+Route::get('/dokumen/{id}', [PublicController::class, 'documentShow'])->name('documents.show');
+Route::get('/dokumen/{id}/preview', [PublicController::class, 'documentPreview'])->name('documents.preview');
+Route::get('/dokumen/{id}/download', [PublicController::class, 'documentDownload'])->name('documents.download');
 Route::get('/galeri', [PublicController::class, 'gallery'])->name('gallery');
 Route::get('/kontak', [PublicController::class, 'contact'])->name('contact');
 Route::get('/visi-misi', [PublicController::class, 'visionMission'])->name('vision-mission');

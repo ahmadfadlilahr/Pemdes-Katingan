@@ -1,52 +1,50 @@
-<!-- Quick Info & Services -->
-<section class="bg-white">
-    <!-- Quick Info -->
-    <div class="mb-8">
-        <h3 class="text-2xl font-bold text-gray-900 mb-6">Informasi Cepat</h3>
+<!-- Quick Info -->
+<div class="mb-6 sm:mb-8">
+    <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6">Informasi Cepat</h3>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-            <!-- Hotline -->
-            <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-4 border-l-4 border-blue-500">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0">
-                        <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
-                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="ml-3">
-                        <p class="text-sm font-medium text-blue-800">Hotline Dinas</p>
-                        <p class="text-lg font-bold text-blue-900">(0536) 21234</p>
+    <div class="grid grid-cols-1 gap-3 sm:gap-4 mb-6 sm:mb-8">
+        <!-- Hotline -->
+        <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-3 sm:p-4 border-l-4 border-blue-500">
+            <div class="flex items-center">
+                <div class="flex-shrink-0">
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 bg-blue-500 rounded-lg flex items-center justify-center">
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
                     </div>
                 </div>
+                <div class="ml-3">
+                    <p class="text-xs sm:text-sm font-medium text-blue-800">Hotline Dinas</p>
+                    <p class="text-base sm:text-lg font-bold text-blue-900">(0536) 21234</p>
+                </div>
             </div>
+        </div>
 
-            <!-- Email -->
-            <div class="bg-gradient-to-r from-green-50 to-green-100 rounded-lg p-4 border-l-4 border-green-500">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0">
-                        <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
-                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                        </div>
+        <!-- Email -->
+        <div class="bg-gradient-to-r from-green-50 to-green-100 rounded-lg p-3 sm:p-4 border-l-4 border-green-500">
+            <div class="flex items-center">
+                <div class="flex-shrink-0">
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 bg-green-500 rounded-lg flex items-center justify-center">
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
                     </div>
-                    <div class="ml-3">
-                        <p class="text-sm font-medium text-green-800">Email Resmi</p>
-                        <p class="text-sm font-bold text-green-900">info@pmdkatingan.go.id</p>
-                    </div>
+                </div>
+                <div class="ml-3">
+                    <p class="text-xs sm:text-sm font-medium text-green-800">Email Resmi</p>
+                    <p class="text-xs sm:text-sm font-bold text-green-900">info@pmdkatingan.go.id</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Layanan Utama -->
-    <div class="mb-8">
-        <h4 class="text-lg font-semibold text-gray-900 mb-4">Layanan Utama</h4>
-        <div class="grid grid-cols-1 gap-3">
-            <!-- Service 1 -->
-            <a href="{{ route('documents') }}" class="flex items-center p-3 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 group">
+<!-- Layanan Utama -->
+<div class="mb-6 sm:mb-8">
+    <h4 class="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">Layanan Utama</h4>
+    <div class="grid grid-cols-1 gap-2 sm:gap-3">
+        <!-- Service 1 -->
+        <a href="{{ route('documents') }}" class="flex items-center p-3 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 group">
                 <div class="flex-shrink-0">
                     <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center group-hover:bg-purple-200 transition-colors duration-200">
                         <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -61,10 +59,10 @@
                 <svg class="w-4 h-4 text-gray-400 group-hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>
-            </a>
+        </a>
 
-            <!-- Service 2 -->
-            <a href="{{ route('contact') }}" class="flex items-center p-3 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 group">
+        <!-- Service 2 -->
+        <a href="{{ route('contact') }}" class="flex items-center p-3 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 group">
                 <div class="flex-shrink-0">
                     <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-200 transition-colors duration-200">
                         <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -79,10 +77,10 @@
                 <svg class="w-4 h-4 text-gray-400 group-hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>
-            </a>
+        </a>
 
-            <!-- Service 3 -->
-            <a href="{{ route('vision-mission') }}" class="flex items-center p-3 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 group">
+        <!-- Service 3 -->
+        <a href="{{ route('vision-mission') }}" class="flex items-center p-3 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 group">
                 <div class="flex-shrink-0">
                     <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center group-hover:bg-green-200 transition-colors duration-200">
                         <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -98,10 +96,10 @@
                 <svg class="w-4 h-4 text-gray-400 group-hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>
-            </a>
+        </a>
 
-            <!-- Service 4 -->
-            <a href="{{ route('gallery') }}" class="flex items-center p-3 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 group">
+        <!-- Service 4 -->
+        <a href="{{ route('gallery') }}" class="flex items-center p-3 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 group">
                 <div class="flex-shrink-0">
                     <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center group-hover:bg-orange-200 transition-colors duration-200">
                         <svg class="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -114,27 +112,26 @@
                     <p class="text-xs text-gray-500">Dokumentasi</p>
                 </div>
                 <svg class="w-4 h-4 text-gray-400 group-hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-            </a>
-        </div>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
     </div>
+</div>
 
-    <!-- Pengumuman -->
-    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
-        <div class="flex items-start">
-            <div class="flex-shrink-0">
-                <svg class="w-5 h-5 text-yellow-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
-                </svg>
-            </div>
-            <div class="ml-3">
-                <h4 class="text-sm font-semibold text-yellow-800 mb-1">Pengumuman Penting</h4>
-                <p class="text-sm text-yellow-700">
-                    Pendaftaran Program Bantuan UMKM Desa dibuka hingga 31 Oktober 2025.
-                    <a href="#" class="font-medium underline hover:no-underline">Selengkapnya</a>
-                </p>
-            </div>
+<!-- Pengumuman Penting -->
+<div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3 sm:p-4">
+    <div class="flex items-start">
+        <div class="flex-shrink-0">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-yellow-600 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
+            </svg>
+        </div>
+        <div class="ml-3">
+            <h4 class="text-xs sm:text-sm font-semibold text-yellow-800 mb-1">Pengumuman Penting</h4>
+            <p class="text-xs sm:text-sm text-yellow-700">
+                Pendaftaran Program Bantuan UMKM Desa dibuka hingga 31 Oktober 2025.
+                <a href="#" class="font-medium underline hover:no-underline">Selengkapnya</a>
+            </p>
         </div>
     </div>
-</section>
+</div>

@@ -3,8 +3,14 @@
     <!-- Hero Section -->
     @include('components.public.hero')
 
+    <!-- Quick Stats Section -->
+    @include('components.public.stats-section')
+
     <!-- Main Content Grid Layout -->
     @include('components.public.main-content-grid')
+
+    <!-- Latest Gallery Section -->
+    @include('components.public.latest-gallery')
 
     <!-- Testimonial Section -->
     @include('components.public.testimonial')

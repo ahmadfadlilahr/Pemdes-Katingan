@@ -28,6 +28,10 @@ class Document extends Model
         'file_size' => 'integer',
     ];
 
+    protected $appends = [
+        'file_size_formatted',
+    ];
+
     protected static function boot()
     {
         parent::boot();
@@ -62,11 +66,17 @@ class Document extends Model
 
     public function getFileSizeFormattedAttribute()
     {
+        if (!$this->file_size || $this->file_size <= 0) {
+            return '0 KB';
+        }
+
         $bytes = $this->file_size;
         $units = ['B', 'KB', 'MB', 'GB'];
+        $i = 0;
 
-        for ($i = 0; $bytes > 1024; $i++) {
+        while ($bytes > 1024 && $i < count($units) - 1) {
             $bytes /= 1024;
+            $i++;
         }
 
         return round($bytes, 2) . ' ' . $units[$i];
