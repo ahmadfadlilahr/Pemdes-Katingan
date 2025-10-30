@@ -88,14 +88,49 @@
                 Kelola Visi & Misi
             </a>
 
-            <!-- Profile -->
-            <a href="{{ route('profile.edit') }}"
-               class="flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 {{ request()->routeIs('profile.*') ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-600' : 'text-gray-700 hover:bg-gray-50' }}">
-                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                </svg>
-                Profile
-            </a>
+            <!-- Contact Management Dropdown -->
+            <div x-data="{ open: {{ request()->routeIs('admin.contacts.*') || request()->routeIs('admin.messages.*') ? 'true' : 'false' }} }">
+                <button @click="open = !open"
+                        class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 {{ request()->routeIs('admin.contacts.*') || request()->routeIs('admin.messages.*') ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50' }}">
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        Kelola Kontak
+                    </div>
+                    <svg class="w-4 h-4 transition-transform duration-200" :class="{'rotate-180': open}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div x-show="open" x-collapse class="mt-2 ml-8 space-y-1">
+                    <a href="{{ route('admin.contacts.index') }}"
+                       class="flex items-center px-4 py-2 text-sm rounded-lg transition-colors duration-200 {{ request()->routeIs('admin.contacts.*') ? 'bg-blue-50 text-blue-700 font-medium' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900' }}">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Informasi Kontak
+                    </a>
+                    <a href="{{ route('admin.messages.index') }}"
+                       class="flex items-center px-4 py-2 text-sm rounded-lg transition-colors duration-200 {{ request()->routeIs('admin.messages.*') ? 'bg-blue-50 text-blue-700 font-medium' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900' }}">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path>
+                        </svg>
+                        Pesan Masuk
+                        @php
+                            try {
+                                $unreadCount = \App\Models\Message::where('is_read', false)->count();
+                            } catch (\Exception $e) {
+                                $unreadCount = 0;
+                            }
+                        @endphp
+                        @if($unreadCount > 0)
+                            <span class="ml-auto bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">{{ $unreadCount }}</span>
+                        @endif
+                    </a>
+                </div>
+            </div>
+
+            
         </nav>
 
         <!-- User Info -->

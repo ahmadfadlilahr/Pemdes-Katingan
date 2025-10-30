@@ -48,7 +48,7 @@
                     <a href="{{ route('gallery') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
                         Galeri
                     </a>
-                    <a href="{{ route('contact') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
+                    <a href="{{ route('kontak') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 {{ request()->routeIs('kontak') ? 'text-blue-600 border-b-2 border-blue-600' : '' }}">
                         Kontak
                     </a>
                 </div>
@@ -91,7 +91,7 @@
             <a href="{{ route('agenda') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Agenda</a>
             <a href="{{ route('documents') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Dokumen</a>
             <a href="{{ route('gallery') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Galeri</a>
-            <a href="{{ route('contact') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Kontak</a>
+            <a href="{{ route('kontak') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 {{ request()->routeIs('kontak') ? 'text-blue-600 bg-blue-50' : '' }}">Kontak</a>
         </div>
     </div>
 </nav>

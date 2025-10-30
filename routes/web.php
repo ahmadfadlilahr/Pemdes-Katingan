@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HeroController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
@@ -17,7 +18,8 @@ Route::get('/dokumen/{id}', [PublicController::class, 'documentShow'])->name('do
 Route::get('/dokumen/{id}/preview', [PublicController::class, 'documentPreview'])->name('documents.preview');
 Route::get('/dokumen/{id}/download', [PublicController::class, 'documentDownload'])->name('documents.download');
 Route::get('/galeri', [PublicController::class, 'gallery'])->name('gallery');
-Route::get('/kontak', [PublicController::class, 'contact'])->name('contact');
+Route::get('/kontak', [ContactController::class, 'index'])->name('kontak');
+Route::post('/kontak', [ContactController::class, 'store'])->name('kontak.store');
 Route::get('/visi-misi', [PublicController::class, 'visionMission'])->name('vision-mission');
 Route::get('/struktur-organisasi', [PublicController::class, 'organizationStructure'])->name('organization-structure');
 Route::get('/program', [PublicController::class, 'programs'])->name('programs');
@@ -71,6 +73,13 @@ Route::middleware('auth')->group(function () {
         Route::post('vision-mission/bulk-delete', [\App\Http\Controllers\Admin\VisionMissionController::class, 'bulkDelete'])->name('vision-mission.bulk-delete');
         Route::post('vision-mission/bulk-activate', [\App\Http\Controllers\Admin\VisionMissionController::class, 'bulkActivate'])->name('vision-mission.bulk-activate');
         Route::post('vision-mission/bulk-deactivate', [\App\Http\Controllers\Admin\VisionMissionController::class, 'bulkDeactivate'])->name('vision-mission.bulk-deactivate');
+
+        // Contact Routes
+        Route::resource('contacts', \App\Http\Controllers\Admin\AdminContactController::class);
+
+        // Message Routes
+        Route::resource('messages', \App\Http\Controllers\Admin\AdminMessageController::class)->only(['index', 'show', 'destroy']);
+        Route::patch('messages/{message}/toggle-read', [\App\Http\Controllers\Admin\AdminMessageController::class, 'toggleRead'])->name('messages.toggle-read');
     });
 });
 
