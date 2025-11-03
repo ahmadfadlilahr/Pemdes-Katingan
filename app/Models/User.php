@@ -22,6 +22,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'is_active',
     ];
 
     /**
@@ -44,7 +46,56 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_active' => 'boolean',
         ];
+    }
+
+    /**
+     * Check if user is super admin
+     */
+    public function isSuperAdmin(): bool
+    {
+        return $this->role === 'super-admin';
+    }
+
+    /**
+     * Check if user is admin
+     */
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
+
+    /**
+     * Check if user is active
+     */
+    public function isActive(): bool
+    {
+        return $this->is_active;
+    }
+
+    /**
+     * Scope to get only super admins
+     */
+    public function scopeSuperAdmins($query)
+    {
+        return $query->where('role', 'super-admin');
+    }
+
+    /**
+     * Scope to get only admins
+     */
+    public function scopeAdmins($query)
+    {
+        return $query->where('role', 'admin');
+    }
+
+    /**
+     * Scope to get active users
+     */
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', true);
     }
 
     public function news(): HasMany

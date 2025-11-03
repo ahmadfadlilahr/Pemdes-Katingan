@@ -9,6 +9,7 @@ use App\Models\Document;
 use App\Models\Gallery;
 use App\Models\VisionMission;
 use App\Models\OrganizationStructure;
+use App\Models\WelcomeMessage;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
@@ -23,6 +24,9 @@ class PublicController extends Controller
             ->orderBy('order_position', 'asc')
             ->take(5)
             ->get();
+
+        // Get active welcome message
+        $welcomeMessage = WelcomeMessage::getActive();
 
         // Get latest published news (4 items)
         $latestNews = News::where('is_published', true)
@@ -59,6 +63,7 @@ class PublicController extends Controller
 
         return view('public.home', compact(
             'heroes',
+            'welcomeMessage',
             'latestNews',
             'upcomingAgenda',
             'latestDocuments',

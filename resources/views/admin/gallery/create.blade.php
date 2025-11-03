@@ -62,7 +62,7 @@
                                        id="title"
                                        value="{{ old('title') }}"
                                        required
-                                       class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('title') border-red-500 @enderror"
+                                       class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('title') @enderror"
                                        placeholder="Masukkan judul foto">
                                 @error('title')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -83,7 +83,7 @@
                                 <textarea name="description"
                                           id="description"
                                           rows="4"
-                                          class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('description') border-red-500 @enderror"
+                                          class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('description') @enderror"
                                           placeholder="Tambahkan deskripsi untuk foto ini (opsional)">{{ old('description') }}</textarea>
                                 @error('description')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -143,7 +143,7 @@
                                        id="order"
                                        value="{{ old('order', 0) }}"
                                        min="0"
-                                       class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('order') border-red-500 @enderror"
+                                       class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('order') @enderror"
                                        placeholder="0">
                                 <p class="mt-1 text-xs text-gray-500">Semakin kecil angka, semakin awal ditampilkan</p>
                                 @error('order')

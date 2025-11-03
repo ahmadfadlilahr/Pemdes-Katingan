@@ -38,7 +38,7 @@
                                         Email <span class="text-red-500">*</span>
                                     </label>
                                     <input type="email" name="email" id="email" value="{{ old('email') }}"
-                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('email') border-red-500 @enderror"
+                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('email') @enderror"
                                            placeholder="contoh@email.com" required>
                                     @error('email')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -51,7 +51,7 @@
                                         Telepon <span class="text-gray-400 text-xs">(Opsional)</span>
                                     </label>
                                     <input type="text" name="phone" id="phone" value="{{ old('phone') }}"
-                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('phone') border-red-500 @enderror"
+                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('phone') @enderror"
                                            placeholder="0812-3456-7890">
                                     @error('phone')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -64,7 +64,7 @@
                                         WhatsApp <span class="text-gray-400 text-xs">(Opsional)</span>
                                     </label>
                                     <input type="text" name="whatsapp" id="whatsapp" value="{{ old('whatsapp') }}"
-                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('whatsapp') border-red-500 @enderror"
+                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('whatsapp') @enderror"
                                            placeholder="6281234567890">
                                     @error('whatsapp')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -84,7 +84,7 @@
                                         Facebook <span class="text-gray-400 text-xs">(Opsional)</span>
                                     </label>
                                     <input type="url" name="facebook" id="facebook" value="{{ old('facebook') }}"
-                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('facebook') border-red-500 @enderror"
+                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('facebook') @enderror"
                                            placeholder="https://facebook.com/username">
                                     @error('facebook')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -97,7 +97,7 @@
                                         Instagram <span class="text-gray-400 text-xs">(Opsional)</span>
                                     </label>
                                     <input type="url" name="instagram" id="instagram" value="{{ old('instagram') }}"
-                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('instagram') border-red-500 @enderror"
+                                           class="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('instagram') border-red-500 @enderror"
                                            placeholder="https://instagram.com/username">
                                     @error('instagram')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -110,7 +110,7 @@
                                         Twitter <span class="text-gray-400 text-xs">(Opsional)</span>
                                     </label>
                                     <input type="url" name="twitter" id="twitter" value="{{ old('twitter') }}"
-                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('twitter') border-red-500 @enderror"
+                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('twitter') @enderror"
                                            placeholder="https://twitter.com/username">
                                     @error('twitter')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -123,7 +123,7 @@
                                         YouTube <span class="text-gray-400 text-xs">(Opsional)</span>
                                     </label>
                                     <input type="url" name="youtube" id="youtube" value="{{ old('youtube') }}"
-                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('youtube') border-red-500 @enderror"
+                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('youtube') @enderror"
                                            placeholder="https://youtube.com/@channel">
                                     @error('youtube')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -142,7 +142,7 @@
                                         Alamat <span class="text-gray-400 text-xs">(Opsional)</span>
                                     </label>
                                     <textarea name="address" id="address" rows="3"
-                                              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('address') border-red-500 @enderror"
+                                              class="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('address') border-red-500 @enderror"
                                               placeholder="Masukkan alamat lengkap kantor">{{ old('address') }}</textarea>
                                     @error('address')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -155,7 +155,7 @@
                                         Google Maps Embed URL <span class="text-gray-400 text-xs">(Opsional)</span>
                                     </label>
                                     <textarea name="google_maps_embed" id="google_maps_embed" rows="2"
-                                              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('google_maps_embed') border-red-500 @enderror"
+                                              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('google_maps_embed') @enderror"
                                               placeholder="https://www.google.com/maps/embed?pb=...">{{ old('google_maps_embed') }}</textarea>
                                     @error('google_maps_embed')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -169,7 +169,7 @@
                                         Hari Kerja <span class="text-gray-400 text-xs">(Opsional)</span>
                                     </label>
                                     <input type="text" name="office_days" id="office_days" value="{{ old('office_days', 'Senin - Jumat') }}"
-                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('office_days') border-red-500 @enderror"
+                                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('office_days') @enderror"
                                            placeholder="Senin - Jumat">
                                     @error('office_days')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -183,7 +183,7 @@
                                             Jam Buka <span class="text-gray-400 text-xs">(Opsional)</span>
                                         </label>
                                         <input type="time" name="office_hours_open" id="office_hours_open" value="{{ old('office_hours_open') }}"
-                                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('office_hours_open') border-red-500 @enderror">
+                                               class="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('office_hours_open') border-red-500 @enderror">
                                         @error('office_hours_open')
                                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                         @enderror
@@ -194,7 +194,7 @@
                                             Jam Tutup <span class="text-gray-400 text-xs">(Opsional)</span>
                                         </label>
                                         <input type="time" name="office_hours_close" id="office_hours_close" value="{{ old('office_hours_close') }}"
-                                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('office_hours_close') border-red-500 @enderror">
+                                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('office_hours_close') @enderror">
                                         @error('office_hours_close')
                                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                         @enderror

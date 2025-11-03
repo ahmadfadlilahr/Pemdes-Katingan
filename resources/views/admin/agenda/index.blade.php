@@ -228,10 +228,10 @@
                                             <div class="flex flex-col space-y-1">
                                                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
                                                     @if($agenda->status === 'draft') bg-gray-100 text-gray-800
-                                                    @elseif($agenda->status === 'scheduled') bg-blue-100 text-blue-800
-                                                    @elseif($agenda->status === 'ongoing') bg-green-100 text-green-800
-                                                    @elseif($agenda->status === 'completed') bg-purple-100 text-purple-800
-                                                    @elseif($agenda->status === 'cancelled') bg-red-100 text-red-800
+                                                    @elseif($agenda->status === 'scheduled')
+                                                    @elseif($agenda->status === 'ongoing')
+                                                    @elseif($agenda->status === 'completed')
+                                                    @elseif($agenda->status === 'cancelled')
                                                     @endif">
                                                     {{ $agenda->status_label }}
                                                 </span>

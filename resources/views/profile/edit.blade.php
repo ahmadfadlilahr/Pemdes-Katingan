@@ -3,30 +3,23 @@
 @section('title', 'Profile')
 
 @section('header')
-    <h2 class="text-xl font-semibold leading-tight text-gray-800">
-        Profile
-    </h2>
+    <div class="flex items-center justify-between">
+        <div>
+            <h2 class="text-2xl font-bold text-gray-900">Profile</h2>
+            <p class="mt-1 text-sm text-gray-600">Kelola informasi akun dan keamanan Anda</p>
+        </div>
+    </div>
 @endsection
 
 @section('content')
-    <div class="max-w-7xl mx-auto space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-            </div>
+    <div class="max-w-5xl mx-auto space-y-6">
+        <!-- Profile Information Card -->
+        <x-admin.profile.information-card :user="$user" />
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
+        <!-- Update Password Card -->
+        <x-admin.profile.password-card />
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
-            </div>
-        </div>
+        <!-- Delete Account Card -->
+        <x-admin.profile.delete-account-card />
     </div>
 @endsection

@@ -34,8 +34,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // Admin Routes
-    Route::prefix('admin')->name('admin.')->group(function () {
+    // Admin Routes (with active user check)
+    Route::middleware('active-user')->prefix('admin')->name('admin.')->group(function () {
         Route::resource('news', NewsController::class);
         Route::post('news/bulk-publish', [NewsController::class, 'bulkPublish'])->name('news.bulk-publish');
         Route::post('news/bulk-draft', [NewsController::class, 'bulkDraft'])->name('news.bulk-draft');
@@ -80,6 +80,16 @@ Route::middleware('auth')->group(function () {
         // Message Routes
         Route::resource('messages', \App\Http\Controllers\Admin\AdminMessageController::class)->only(['index', 'show', 'destroy']);
         Route::patch('messages/{message}/toggle-read', [\App\Http\Controllers\Admin\AdminMessageController::class, 'toggleRead'])->name('messages.toggle-read');
+
+        // Welcome Message Routes
+        Route::resource('welcome-messages', \App\Http\Controllers\Admin\AdminWelcomeMessageController::class);
+        Route::patch('welcome-messages/{welcomeMessage}/toggle-status', [\App\Http\Controllers\Admin\AdminWelcomeMessageController::class, 'toggleStatus'])->name('welcome-messages.toggle-status');
+
+        // User Management Routes (Super Admin Only)
+        Route::middleware('super-admin')->group(function () {
+            Route::resource('users', \App\Http\Controllers\Admin\AdminUserController::class);
+            Route::patch('users/{user}/toggle-status', [\App\Http\Controllers\Admin\AdminUserController::class, 'toggleStatus'])->name('users.toggle-status');
+        });
     });
 });
 

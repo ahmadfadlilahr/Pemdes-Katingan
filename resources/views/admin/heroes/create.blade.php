@@ -34,7 +34,7 @@
                                name="title"
                                id="title"
                                value="{{ old('title') }}"
-                               class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('title') border-red-300 @enderror"
+                               class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('title') @enderror"
                                placeholder="Masukkan judul hero">
                         @error('title')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -49,7 +49,7 @@
                         <textarea name="description"
                                   id="description"
                                   rows="4"
-                                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('description') border-red-300 @enderror"
+                                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('description') @enderror"
                                   placeholder="Deskripsi hero (opsional)">{{ old('description') }}</textarea>
                         @error('description')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -74,7 +74,7 @@
                                            name="button1_text"
                                            id="button1_text"
                                            value="{{ old('button1_text') }}"
-                                           class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('button1_text') border-red-300 @enderror"
+                                           class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('button1_text') @enderror"
                                            placeholder="Contoh: Selengkapnya">
                                     @error('button1_text')
                                         <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -89,7 +89,7 @@
                                            name="button1_url"
                                            id="button1_url"
                                            value="{{ old('button1_url') }}"
-                                           class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('button1_url') border-red-300 @enderror"
+                                           class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('button1_url') @enderror"
                                            placeholder="https://example.com">
                                     @error('button1_url')
                                         <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -121,7 +121,7 @@
                                            name="button2_text"
                                            id="button2_text"
                                            value="{{ old('button2_text') }}"
-                                           class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('button2_text') border-red-300 @enderror"
+                                           class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('button2_text') @enderror"
                                            placeholder="Contoh: Kontak Kami">
                                     @error('button2_text')
                                         <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -136,7 +136,7 @@
                                            name="button2_url"
                                            id="button2_url"
                                            value="{{ old('button2_url') }}"
-                                           class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('button2_url') border-red-300 @enderror"
+                                           class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('button2_url') @enderror"
                                            placeholder="https://example.com">
                                     @error('button2_url')
                                         <p class="mt-2 text-sm text-red-600">{{ $message }}</p>

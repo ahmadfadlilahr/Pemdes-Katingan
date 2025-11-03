@@ -61,7 +61,7 @@
                                id="title"
                                value="{{ old('title', $document->title) }}"
                                required
-                               class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('title') border-red-300 @enderror"
+                               class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('title') @enderror"
                                placeholder="Masukkan judul dokumen">
                         @error('title')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -76,7 +76,7 @@
                         <textarea name="description"
                                   id="description"
                                   rows="6"
-                                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('description') border-red-300 @enderror"
+                                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('description') @enderror"
                                   placeholder="Masukkan deskripsi dokumen (opsional)">{{ old('description', $document->description) }}</textarea>
                         @error('description')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -136,7 +136,7 @@
                                    name="category"
                                    id="category"
                                    value="{{ old('category', $document->category) }}"
-                                   class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('category') border-red-300 @enderror text-sm"
+                                   class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('category') @enderror text-sm"
                                    placeholder="Peraturan, Laporan, dll.">
                             @error('category')
                                 <p class="mt-2 text-sm text-red-600">{{ $message }}</p>

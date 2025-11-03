@@ -98,10 +98,10 @@
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium
                                     @if($agenda->status === 'draft') bg-gray-100 text-gray-800
-                                    @elseif($agenda->status === 'scheduled') bg-blue-100 text-blue-800
-                                    @elseif($agenda->status === 'ongoing') bg-green-100 text-green-800
-                                    @elseif($agenda->status === 'completed') bg-purple-100 text-purple-800
-                                    @elseif($agenda->status === 'cancelled') bg-red-100 text-red-800
+                                    @elseif($agenda->status === 'scheduled')
+                                    @elseif($agenda->status === 'ongoing')
+                                    @elseif($agenda->status === 'completed')
+                                    @elseif($agenda->status === 'cancelled')
                                     @endif">
                                     <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                         <circle cx="10" cy="10" r="3"></circle>

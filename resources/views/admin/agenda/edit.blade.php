@@ -70,7 +70,7 @@
                                        id="title"
                                        value="{{ old('title', $agenda->title) }}"
                                        required
-                                       class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('title') border-red-300 @enderror"
+                                       class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('title') @enderror"
                                        placeholder="Masukkan judul agenda">
                                 @error('title')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -86,7 +86,7 @@
                                           id="description"
                                           rows="4"
                                           required
-                                          class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('description') border-red-300 @enderror"
+                                          class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('description') @enderror"
                                           placeholder="Masukkan deskripsi agenda">{{ old('description', $agenda->description) }}</textarea>
                                 @error('description')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -102,7 +102,7 @@
                                        name="location"
                                        id="location"
                                        value="{{ old('location', $agenda->location) }}"
-                                       class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('location') border-red-300 @enderror"
+                                       class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('location') @enderror"
                                        placeholder="Masukkan lokasi kegiatan">
                                 @error('location')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -125,7 +125,7 @@
                                            id="start_date"
                                            value="{{ old('start_date', $agenda->start_date->format('Y-m-d')) }}"
                                            required
-                                           class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('start_date') border-red-300 @enderror">
+                                           class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('start_date') @enderror">
                                     @error('start_date')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                     @enderror
@@ -141,7 +141,7 @@
                                            id="end_date"
                                            value="{{ old('end_date', $agenda->end_date->format('Y-m-d')) }}"
                                            required
-                                           class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('end_date') border-red-300 @enderror">
+                                           class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('end_date') @enderror">
                                     @error('end_date')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                     @enderror
@@ -156,7 +156,7 @@
                                            name="start_time"
                                            id="start_time"
                                            value="{{ old('start_time', $agenda->start_time ? $agenda->start_time->format('H:i') : '') }}"
-                                           class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('start_time') border-red-300 @enderror">
+                                           class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('start_time') @enderror">
                                     @error('start_time')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                     @enderror
@@ -171,7 +171,7 @@
                                            name="end_time"
                                            id="end_time"
                                            value="{{ old('end_time', $agenda->end_time ? $agenda->end_time->format('H:i') : '') }}"
-                                           class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('end_time') border-red-300 @enderror">
+                                           class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('end_time') @enderror">
                                     @error('end_time')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                     @enderror
@@ -194,7 +194,7 @@
                                     <select name="status"
                                             id="status"
                                             required
-                                            class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('status') border-red-300 @enderror">
+                                            class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('status') @enderror">
                                         <option value="">Pilih Status</option>
                                         <option value="draft" {{ old('status', $agenda->status) === 'draft' ? 'selected' : '' }}>Draft</option>
                                         <option value="scheduled" {{ old('status', $agenda->status) === 'scheduled' ? 'selected' : '' }}>Terjadwal</option>

@@ -34,27 +34,23 @@
                                name="title"
                                id="title"
                                value="{{ old('title') }}"
-                               class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('title') border-red-300 @enderror"
+                               class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('title') @enderror"
                                placeholder="Masukkan judul berita">
                         @error('title')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
 
-                    <!-- Content -->
-                    <div>
-                        <label for="content" class="block text-sm font-medium text-gray-700 mb-2">
-                            Isi Berita <span class="text-red-500">*</span>
-                        </label>
-                        <textarea name="content"
-                                  id="content"
-                                  rows="12"
-                                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('content') border-red-300 @enderror"
-                                  placeholder="Tulis isi berita di sini...">{{ old('content') }}</textarea>
-                        @error('content')
-                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
-                    </div>
+                    <!-- Content with TinyMCE -->
+                    <x-admin.tinymce-editor
+                        id="content"
+                        name="content"
+                        label="Isi Berita"
+                        :value="old('content')"
+                        :required="true"
+                        :height="500"
+                        placeholder="Tulis isi berita di sini..."
+                    />
 
                     <!-- Excerpt -->
                     <div>
@@ -64,7 +60,7 @@
                         <textarea name="excerpt"
                                   id="excerpt"
                                   rows="3"
-                                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('excerpt') border-red-300 @enderror"
+                                  class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('excerpt') @enderror"
                                   placeholder="Ringkasan singkat berita (opsional - akan dibuat otomatis jika dikosongkan)">{{ old('excerpt') }}</textarea>
                         @error('excerpt')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>

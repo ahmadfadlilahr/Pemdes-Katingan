@@ -38,7 +38,7 @@
                                     Nama Lengkap <span class="text-red-500">*</span>
                                 </label>
                                 <input type="text" name="name" id="name" value="{{ old('name') }}"
-                                       class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @error('name') border-red-500 @else border-gray-300 @enderror"
+                                       class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @error('name') border-red-500 @else @enderror"
                                        placeholder="Masukkan nama lengkap Anda" required>
                                 @error('name')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -51,7 +51,7 @@
                                     Email <span class="text-red-500">*</span>
                                 </label>
                                 <input type="email" name="email" id="email" value="{{ old('email') }}"
-                                       class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @error('email') border-red-500 @else border-gray-300 @enderror"
+                                       class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @error('email') border-red-500 @else @enderror"
                                        placeholder="contoh@email.com" required>
                                 @error('email')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -64,7 +64,7 @@
                                     Subjek <span class="text-red-500">*</span>
                                 </label>
                                 <input type="text" name="subject" id="subject" value="{{ old('subject') }}"
-                                       class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @error('subject') border-red-500 @else border-gray-300 @enderror"
+                                       class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @error('subject') border-red-500 @else @enderror"
                                        placeholder="Masukkan subjek pesan" required>
                                 @error('subject')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -77,7 +77,7 @@
                                     Pesan <span class="text-red-500">*</span>
                                 </label>
                                 <textarea name="message" id="message" rows="6"
-                                          class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @error('message') border-red-500 @else border-gray-300 @enderror"
+                                          class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @error('message') border-red-500 @else @enderror"
                                           placeholder="Tulis pesan Anda di sini..." required>{{ old('message') }}</textarea>
                                 @error('message')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -94,7 +94,7 @@
                                         <p class="text-lg font-semibold text-gray-800">{{ $num1 }} + {{ $num2 }} = ?</p>
                                     </div>
                                     <input type="number" name="captcha" id="captcha"
-                                           class="w-32 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @error('captcha') border-red-500 @else border-gray-300 @enderror"
+                                           class="w-32 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 @error('captcha') border-red-500 @else @enderror"
                                            placeholder="Jawaban" required>
                                 </div>
                                 @error('captcha')

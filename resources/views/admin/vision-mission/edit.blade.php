@@ -40,7 +40,7 @@
                                     id="vision"
                                     name="vision"
                                     rows="6"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm @error('vision') border-red-500 @enderror"
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm @error('vision') @enderror"
                                     placeholder="Masukkan visi organisasi..."
                                     required>{{ old('vision', $visionMission->vision) }}</textarea>
                                 @error('vision')
@@ -60,7 +60,7 @@
                                     id="mission"
                                     name="mission"
                                     rows="10"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm @error('mission') border-red-500 @enderror"
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm @error('mission') @enderror"
                                     placeholder="Masukkan misi organisasi..."
                                     required>{{ old('mission', $visionMission->mission) }}</textarea>
                                 @error('mission')

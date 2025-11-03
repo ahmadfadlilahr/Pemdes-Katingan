@@ -79,7 +79,7 @@
                                                    id="name"
                                                    value="{{ old('name') }}"
                                                    required
-                                                   class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('name') border-red-300 @enderror"
+                                                   class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('name') @enderror"
                                                    placeholder="Masukkan nama lengkap pejabat">
                                             @error('name')
                                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -96,7 +96,7 @@
                                                    id="nip"
                                                    value="{{ old('nip') }}"
                                                    required
-                                                   class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('nip') border-red-300 @enderror"
+                                                   class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('nip') @enderror"
                                                    placeholder="Contoh: 198501012010011001">
                                             @error('nip')
                                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -119,7 +119,7 @@
                                                    id="position"
                                                    value="{{ old('position') }}"
                                                    required
-                                                   class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('position') border-red-300 @enderror"
+                                                   class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('position') @enderror"
                                                    placeholder="Contoh: Kepala Dinas, Sekretaris, dll">
                                             @error('position')
                                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -137,7 +137,7 @@
                                                    value="{{ old('order', $nextOrder) }}"
                                                    min="1"
                                                    required
-                                                   class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('order') border-red-300 @enderror">
+                                                   class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('order') @enderror">
                                             @error('order')
                                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                                             @enderror
