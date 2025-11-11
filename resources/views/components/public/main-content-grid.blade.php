@@ -31,7 +31,7 @@
                 <div class="space-y-6 sticky top-4">
                     <!-- Quick Info & Services -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-6">
-                        @include('components.public.quick-info')
+                        @include('components.public.quick-info', ['contact' => $contact ?? null])
                     </div>
 
                     <!-- Dokumen Publik -->

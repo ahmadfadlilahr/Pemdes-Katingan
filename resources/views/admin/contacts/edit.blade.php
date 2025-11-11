@@ -153,15 +153,38 @@
                                 <!-- Google Maps Embed -->
                                 <div>
                                     <label for="google_maps_embed" class="block text-sm font-medium text-gray-700 mb-2">
-                                        Google Maps Embed URL <span class="text-gray-400 text-xs">(Opsional)</span>
+                                        Google Maps Embed <span class="text-gray-400 text-xs">(Opsional)</span>
                                     </label>
-                                    <textarea name="google_maps_embed" id="google_maps_embed" rows="2"
-                                              class="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 @error('google_maps_embed') border-red-500 @else @enderror"
-                                              placeholder="https://www.google.com/maps/embed?pb=...">{{ old('google_maps_embed', $contact->google_maps_embed) }}</textarea>
+                                    <textarea name="google_maps_embed" id="google_maps_embed" rows="4"
+                                              class="w-full px-4 py-2 border rounded-lg focus:ring-blue-500 focus:border-blue-500 font-mono text-xs @error('google_maps_embed') border-red-500 @else @enderror"
+                                              placeholder="Paste Google Maps embed code atau URL di sini...">{{ old('google_maps_embed', $contact->google_maps_embed) }}</textarea>
                                     @error('google_maps_embed')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                     @enderror
-                                    <p class="mt-1 text-xs text-gray-500">Copy URL embed dari Google Maps untuk menampilkan peta interaktif</p>
+
+                                    {{-- Help Instructions --}}
+                                    <div class="mt-2 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                                        <p class="text-xs font-semibold text-blue-900 mb-2">📍 Cara mendapatkan embed code Google Maps:</p>
+                                        <ol class="text-xs text-blue-800 space-y-1 list-decimal list-inside">
+                                            <li>Buka <a href="https://www.google.com/maps" target="_blank" class="underline hover:text-blue-600">Google Maps</a></li>
+                                            <li>Cari lokasi kantor Anda</li>
+                                            <li>Klik tombol "Bagikan" atau "Share"</li>
+                                            <li>Pilih tab "Sematkan peta" atau "Embed a map"</li>
+                                            <li>Copy seluruh kode <code class="bg-blue-100 px-1 rounded">&lt;iframe src="..."&gt;</code></li>
+                                            <li>Paste di kolom ini</li>
+                                        </ol>
+                                        <p class="text-xs text-blue-700 mt-2">💡 <strong>Tip:</strong> Anda bisa paste full iframe HTML atau hanya URL-nya saja.</p>
+                                    </div>
+
+                                    {{-- Preview Maps if exists --}}
+                                    @if($contact->google_maps_embed)
+                                        <div class="mt-3">
+                                            <p class="text-xs font-medium text-gray-700 mb-2">Preview Peta:</p>
+                                            <div class="border-2 border-gray-300 rounded-lg overflow-hidden">
+                                                <x-public.google-maps :embedCode="$contact->google_maps_embed" />
+                                            </div>
+                                        </div>
+                                    @endif
                                 </div>
 
                                 <!-- Office Days -->

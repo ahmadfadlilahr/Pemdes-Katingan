@@ -239,20 +239,17 @@
                                 </div>
                             @endif
 
-                            <!-- Google Maps -->
+                            <!-- Location Map -->
                             @if($contact->google_maps_embed)
-                                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                                    <div class="aspect-w-16 aspect-h-9">
-                                        <iframe src="{{ $contact->google_maps_embed }}"
-                                                width="100%"
-                                                height="300"
-                                                style="border:0;"
-                                                allowfullscreen=""
-                                                loading="lazy"
-                                                referrerpolicy="no-referrer-when-downgrade"
-                                                class="rounded-lg">
-                                        </iframe>
-                                    </div>
+                                <div class="mt-6">
+                                    <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                                        <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        </svg>
+                                        Lokasi Kantor
+                                    </h3>
+                                    <x-public.google-maps :embedCode="$contact->google_maps_embed" />
                                 </div>
                             @endif
                         @endif

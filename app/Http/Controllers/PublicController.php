@@ -10,6 +10,7 @@ use App\Models\Gallery;
 use App\Models\VisionMission;
 use App\Models\OrganizationStructure;
 use App\Models\WelcomeMessage;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
@@ -27,6 +28,9 @@ class PublicController extends Controller
 
         // Get active welcome message
         $welcomeMessage = WelcomeMessage::getActive();
+
+        // Get contact information for quick info sidebar
+        $contact = Contact::first();
 
         // Get latest published news (4 items)
         $latestNews = News::where('is_published', true)
@@ -64,6 +68,7 @@ class PublicController extends Controller
         return view('public.home', compact(
             'heroes',
             'welcomeMessage',
+            'contact',
             'latestNews',
             'upcomingAgenda',
             'latestDocuments',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class AdminContactController extends Controller
 {
@@ -47,6 +48,9 @@ class AdminContactController extends Controller
 
         Contact::create($validated);
 
+        // Clear footer contact cache
+        Cache::forget('footer_contact');
+
         return redirect()
             ->route('admin.contacts.index')
             ->with('success', 'Kontak berhasil ditambahkan!');
@@ -82,6 +86,9 @@ class AdminContactController extends Controller
 
         $contact->update($validated);
 
+        // Clear footer contact cache
+        Cache::forget('footer_contact');
+
         return redirect()
             ->route('admin.contacts.index')
             ->with('success', 'Kontak berhasil diperbarui!');
@@ -93,6 +100,9 @@ class AdminContactController extends Controller
     public function destroy(Contact $contact)
     {
         $contact->delete();
+
+        // Clear footer contact cache
+        Cache::forget('footer_contact');
 
         return redirect()
             ->route('admin.contacts.index')
