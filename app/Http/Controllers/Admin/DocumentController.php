@@ -63,7 +63,15 @@ class DocumentController extends Controller
      */
     public function create()
     {
-        return view('admin.documents.create');
+        // Get existing categories for dropdown suggestions
+        $categories = Document::select('category')
+            ->whereNotNull('category')
+            ->where('category', '!=', '')
+            ->distinct()
+            ->orderBy('category')
+            ->pluck('category');
+
+        return view('admin.documents.create', compact('categories'));
     }
 
     /**
@@ -114,7 +122,15 @@ class DocumentController extends Controller
      */
     public function edit(Document $document)
     {
-        return view('admin.documents.edit', compact('document'));
+        // Get existing categories for dropdown suggestions
+        $categories = Document::select('category')
+            ->whereNotNull('category')
+            ->where('category', '!=', '')
+            ->distinct()
+            ->orderBy('category')
+            ->pluck('category');
+
+        return view('admin.documents.edit', compact('document', 'categories'));
     }
 
     /**

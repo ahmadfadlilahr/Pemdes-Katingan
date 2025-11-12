@@ -29,6 +29,14 @@ Website resmi Dinas Pemberdayaan Masyarakat dan Desa (PMD) Kabupaten Katingan ya
 - **Google Maps** - Embed maps dengan smart parsing (iframe/URL support)
 - **Jam Operasional** - Informasi waktu layanan
 
+### 📄 Manajemen Dokumen
+- **Upload Multi-Format** - Support PDF, DOC, XLS, PPT, TXT, ZIP, RAR (max 10MB)
+- **Smart Category System** - Hybrid dropdown + text input untuk kategori
+- **Autocomplete** - Suggestions kategori yang sudah ada
+- **Drag & Drop Upload** - Modern file upload interface
+- **Download Tracking** - Counter otomatis untuk setiap download
+- **Bulk Actions** - Aktivasi, non-aktivasi, dan hapus massal
+
 ### 🎨 UI/UX Features
 - **Responsive Design** - Optimal di mobile, tablet, dan desktop
 - **Hero Slider** - Banner dinamis dengan call-to-action
@@ -125,6 +133,13 @@ database/
 - **Responsive** - 16:9 aspect ratio maintained
 - **Lazy Loading** - Performance optimization
 
+### Document Category Enhancement
+- **Hybrid Input** - Dropdown untuk kategori existing + text input untuk kategori baru
+- **HTML5 Datalist** - Native autocomplete tanpa JavaScript library
+- **Smart Suggestions** - Display available categories di help text
+- **Data Consistency** - Mengurangi kategori duplikat akibat typo
+- **Responsive** - Works seamlessly di mobile/tablet/desktop
+
 ## 📚 Documentation
 
 Dokumentasi lengkap tersedia untuk setiap fitur:
@@ -135,6 +150,7 @@ Dokumentasi lengkap tersedia untuk setiap fitur:
 - [`GOOGLE_MAPS_DOCUMENTATION.md`](GOOGLE_MAPS_DOCUMENTATION.md) - Maps embed fix & smart parsing
 - [`HOME_CONTACT_INFO_DOCUMENTATION.md`](HOME_CONTACT_INFO_DOCUMENTATION.md) - Beranda sidebar informasi cepat
 - [`FOOTER_DYNAMIC_DOCUMENTATION.md`](FOOTER_DYNAMIC_DOCUMENTATION.md) - Footer kontak & sosial media dinamis
+- [`DOCUMENT_CATEGORY_ENHANCEMENT.md`](DOCUMENT_CATEGORY_ENHANCEMENT.md) - Smart category system untuk dokumen
 
 
 ## 🚀 Deployment

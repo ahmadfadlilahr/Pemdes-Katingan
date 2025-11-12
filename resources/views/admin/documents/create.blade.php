@@ -111,12 +111,33 @@
                                    name="category"
                                    id="category"
                                    value="{{ old('category') }}"
+                                   list="category-suggestions"
+                                   autocomplete="off"
                                    class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 @error('category') @enderror text-sm"
-                                   placeholder="Peraturan, Laporan, dll.">
+                                   placeholder="Pilih atau ketik kategori baru...">
+
+                            <!-- Datalist for category suggestions -->
+                            @if($categories->isNotEmpty())
+                                <datalist id="category-suggestions">
+                                    @foreach($categories as $cat)
+                                        <option value="{{ $cat }}">
+                                    @endforeach
+                                </datalist>
+                            @endif
+
                             @error('category')
                                 <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                             @enderror
-                            <p class="mt-1 text-xs text-gray-500">Opsional. Untuk mengelompokkan dokumen</p>
+
+                            <!-- Help text with category suggestions -->
+                            @if($categories->isNotEmpty())
+                                <p class="mt-1 text-xs text-gray-500">
+                                    Kategori tersedia: <span class="font-medium text-gray-700">{{ $categories->join(', ') }}</span>
+                                </p>
+                                <p class="mt-1 text-xs text-gray-500">Atau ketik kategori baru untuk menambahkan</p>
+                            @else
+                                <p class="mt-1 text-xs text-gray-500">Ketik kategori baru (contoh: Peraturan, Laporan, dll.)</p>
+                            @endif
                         </div>
                     </div>
 
@@ -209,6 +230,24 @@
                     displayFileName(fileInput);
                 }
             }
+        }
+
+        // Enhanced category input with visual feedback
+        const categoryInput = document.getElementById('category');
+        if (categoryInput) {
+            // Add visual feedback when user selects from datalist
+            categoryInput.addEventListener('input', function() {
+                if (this.value.trim()) {
+                    this.classList.add('font-medium');
+                } else {
+                    this.classList.remove('font-medium');
+                }
+            });
+
+            // Show all suggestions on focus (if browser supports)
+            categoryInput.addEventListener('focus', function() {
+                this.click();
+            });
         }
     </script>
     @endpush
