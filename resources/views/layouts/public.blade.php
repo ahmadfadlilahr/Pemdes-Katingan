@@ -13,7 +13,8 @@
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700&display=swap" rel="stylesheet" />
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('Logo_Dinas_PMD.png') }}" type="image/png">
+    <link rel="apple-touch-icon" href="{{ asset('Logo_Dinas_PMD.png') }}">
 
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])

@@ -12,7 +12,23 @@ Website resmi Dinas Pemberdayaan Masyarakat dan Desa (PMD) Kabupaten Katingan ya
 
 ## ✨ Fitur Utama
 
-### 📰 Manajemen Konten
+### � RESTful API
+- **L5-Swagger Documentation** - OpenAPI 3.0 interactive documentation
+- **Versioned API** - `/api/v1/...` untuk future compatibility
+- **Rate Limiting** - 60 requests/minute protection
+- **Endpoints Available:**
+  - **News API** - List, detail, categories (search & filter support)
+  - **Agenda API** - List, detail (date range & upcoming filters)
+  - **Gallery API** - List, detail (searchable)
+  - **Documents API** - List, detail, categories, download tracking
+  - **Organization API** - Hierarchical structure, member details
+  - **Information API** - Contact, vision-mission, welcome message
+  - **Statistics API** - Overall stats, news stats, document stats
+- **Response Format** - Consistent JSON (success, message, data, meta)
+- **Pagination** - Max 50 items/page with meta & links
+- **Documentation:** `/api/documentation` - Full Swagger UI interface
+
+### �📰 Manajemen Konten
 - **Berita & Artikel** - Publikasi berita terkini dengan sistem draft dan publish
 - **Agenda Kegiatan** - Kalender acara dan kegiatan dinas
 - **Galeri Foto** - Dokumentasi visual kegiatan dinas
@@ -20,7 +36,17 @@ Website resmi Dinas Pemberdayaan Masyarakat dan Desa (PMD) Kabupaten Katingan ya
 
 ### 🏛️ Profil Organisasi
 - **Visi & Misi** - Single entry dengan rich text editor
-- **Struktur Organisasi** - Display foto, NIP (masked), jabatan, dan detail pegawai
+- **Struktur Organisasi** - Portrait Card Hierarchical System
+  - **Portrait Design:** Card vertikal elegant dengan aspect ratio 3:4 (max 320px)
+  - **Photo Dominance:** Foto prominent dengan gradient overlay (~75% area)
+  - **Compact Info:** Info section clean dengan padding optimal (p-5)
+  - **Duplicate Orders Allowed:** Urutan sama = bersanding horizontal sejajar ✅
+  - **Flexible Hierarchy:** Input angka urutan yang sama untuk jabatan setara
+  - **Dynamic Grid:** 1-4 columns responsive (sm:2 / lg:3 / xl:4)
+  - **Connecting Lines:** Visual indicator alur komando antar level
+  - **Consistent Styling:** Blue gradient badges untuk semua posisi
+  - **Smart Responsive:** Grid max-width optimization dengan place-items-center
+- **NIP Masking** - Display foto, NIP (masked 8 digit pertama), jabatan, dan detail pegawai
 - **Kata Sambutan** - Pesan kepala dinas dengan foto dan status toggle
 
 ### 📞 Informasi & Kontak
@@ -70,6 +96,9 @@ php artisan key:generate
 php artisan migrate
 php artisan db:seed
 
+# Generate API documentation
+php artisan l5-swagger:generate
+
 # Compile assets
 npm run build
 
@@ -79,6 +108,11 @@ php artisan storage:link
 # Start development server
 php artisan serve
 ```
+
+**Access Points:**
+- Website: `http://localhost:8000`
+- Admin Panel: `http://localhost:8000/admin`
+- API Documentation: `http://localhost:8000/api/documentation`
 
 ## 📁 Project Structure
 
@@ -90,6 +124,15 @@ app/
 │   │   ├── NewsController.php
 │   │   ├── AgendaController.php
 │   │   └── ...
+│   ├── Api/V1/             # API V1 controllers
+│   │   ├── Controller.php  # Base with OpenAPI annotations
+│   │   ├── NewsController.php
+│   │   ├── AgendaController.php
+│   │   ├── GalleryController.php
+│   │   ├── DocumentController.php
+│   │   ├── OrganizationController.php
+│   │   ├── InfoController.php
+│   │   └── StatsController.php
 │   └── PublicController.php
 ├── Models/
 │   ├── Contact.php
@@ -107,9 +150,24 @@ resources/views/
 │   └── public/             # Public components
 └── layouts/
 
+routes/
+├── web.php                 # Web routes
+├── api.php                 # API routes (v1 with rate limiting)
+└── auth.php                # Authentication routes
+
 database/
 ├── migrations/             # Database schemas
 └── seeders/               # Sample data
+
+config/
+└── l5-swagger.php         # Swagger/OpenAPI configuration
+
+storage/api-docs/
+└── api-docs.json          # Generated Swagger documentation
+
+docs/
+├── API_DOCUMENTATION.md    # Complete API guide
+└── ...                     # Other documentation
 ```
 
 ## 🎯 Key Features Implementation
@@ -139,19 +197,6 @@ database/
 - **Smart Suggestions** - Display available categories di help text
 - **Data Consistency** - Mengurangi kategori duplikat akibat typo
 - **Responsive** - Works seamlessly di mobile/tablet/desktop
-
-## 📚 Documentation
-
-Dokumentasi lengkap tersedia untuk setiap fitur:
-
-- [`ORGANIZATION_STRUCTURE_DOCUMENTATION.md`](ORGANIZATION_STRUCTURE_DOCUMENTATION.md) - NIP masking & struktur organisasi
-- [`CONTACT_MANAGEMENT_DOCUMENTATION.md`](CONTACT_MANAGEMENT_DOCUMENTATION.md) - Kelola kontak & single entry
-- [`WELCOME_MESSAGE_DOCUMENTATION.md`](WELCOME_MESSAGE_DOCUMENTATION.md) - Kata sambutan & card redesign
-- [`GOOGLE_MAPS_DOCUMENTATION.md`](GOOGLE_MAPS_DOCUMENTATION.md) - Maps embed fix & smart parsing
-- [`HOME_CONTACT_INFO_DOCUMENTATION.md`](HOME_CONTACT_INFO_DOCUMENTATION.md) - Beranda sidebar informasi cepat
-- [`FOOTER_DYNAMIC_DOCUMENTATION.md`](FOOTER_DYNAMIC_DOCUMENTATION.md) - Footer kontak & sosial media dinamis
-- [`DOCUMENT_CATEGORY_ENHANCEMENT.md`](DOCUMENT_CATEGORY_ENHANCEMENT.md) - Smart category system untuk dokumen
-
 
 ## 🚀 Deployment
 
@@ -202,10 +247,59 @@ php artisan view:clear
 php artisan config:clear
 php artisan route:clear
 
+# Regenerate API documentation
+php artisan l5-swagger:generate
+
 # Clear specific cache key
 php artisan tinker
 >>> Cache::forget('footer_contact')
 ```
+
+## 🔌 API Usage
+
+### Quick Start
+
+```bash
+# Get all news
+curl "http://localhost:8000/api/v1/news?per_page=10"
+
+# Get news by category
+curl "http://localhost:8000/api/v1/news?category=Pengumuman"
+
+# Get upcoming events
+curl "http://localhost:8000/api/v1/agenda?upcoming=true"
+
+# Get statistics
+curl "http://localhost:8000/api/v1/stats"
+
+# Get organization structure
+curl "http://localhost:8000/api/v1/organization"
+```
+
+### Interactive Documentation
+Access Swagger UI for interactive API testing:
+```
+http://localhost:8000/api/documentation
+```
+
+**Features:**
+- ✅ Try out all endpoints directly from browser
+- ✅ View request/response schemas
+- ✅ See example values
+- ✅ Test filters and pagination
+- ✅ Download OpenAPI JSON spec
+
+### Complete API Guide
+See full documentation: [`docs/API_DOCUMENTATION.md`](docs/API_DOCUMENTATION.md)
+
+**Topics covered:**
+- All available endpoints
+- Request/response formats
+- Query parameters
+- Error handling
+- Rate limiting
+- Best practices
+- Code examples (cURL, JavaScript, etc.)
 
 ## 📊 Performance Optimization
 

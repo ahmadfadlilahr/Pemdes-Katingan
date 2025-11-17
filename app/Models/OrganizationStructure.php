@@ -47,32 +47,18 @@ class OrganizationStructure extends Model
     }
 
     /**
-     * Adjust orders when inserting at specific position
+     * Get suggested order number (can be same as last to create horizontal hierarchy)
      */
-    public static function adjustOrdersForInsert(int $newOrder): void
+    public static function getSuggestedOrder(): int
     {
-        self::where('order', '>=', $newOrder)
-            ->increment('order');
+        // Return the last used order number for suggestions
+        // Admin can use same number for horizontal hierarchy
+        return self::max('order') ?? 1;
     }
 
     /**
-     * Adjust orders when updating position
-     */
-    public static function adjustOrdersForUpdate(int $oldOrder, int $newOrder): void
-    {
-        if ($oldOrder < $newOrder) {
-            // Moving down - decrement orders in between
-            self::whereBetween('order', [$oldOrder + 1, $newOrder])
-                ->decrement('order');
-        } elseif ($oldOrder > $newOrder) {
-            // Moving up - increment orders in between
-            self::whereBetween('order', [$newOrder, $oldOrder - 1])
-                ->increment('order');
-        }
-    }
-
-    /**
-     * Check if order number exists
+     * Check if order number exists (for info only, NOT for validation)
+     * Multiple people CAN have the same order number (horizontal hierarchy)
      */
     public static function orderExists(int $order, ?int $excludeId = null): bool
     {
@@ -83,6 +69,14 @@ class OrganizationStructure extends Model
         }
 
         return $query->exists();
+    }
+
+    /**
+     * Get count of people at specific order level
+     */
+    public static function countAtOrder(int $order): int
+    {
+        return self::where('order', $order)->count();
     }
 
     /**

@@ -24,32 +24,32 @@
 
                     <!-- Content -->
                     <div class="absolute inset-0 z-10 flex items-end justify-center pb-12 sm:pb-16 lg:pb-20">
-                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                            <div class="text-center max-w-4xl mx-auto space-y-4 sm:space-y-5">
+                        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full">
+                            <div class="text-center max-w-4xl mx-auto space-y-1.5 sm:space-y-3 lg:space-y-5">
                                 @if($hero->show_title && $hero->title)
-                                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight drop-shadow-2xl">
+                                <h1 class="text-base sm:text-2xl md:text-3xl lg:text-5xl font-bold text-white leading-snug drop-shadow-2xl px-1">
                                     {{ $hero->title }}
                                 </h1>
                                 @endif
 
                                 @if($hero->description)
-                                <p class="text-base sm:text-lg lg:text-xl text-white leading-relaxed drop-shadow-xl">
+                                <p class="text-xs sm:text-sm md:text-base lg:text-xl text-white leading-relaxed drop-shadow-xl px-1">
                                     {{ $hero->description }}
                                 </p>
                                 @endif
 
                                 @if($hero->button1_text || $hero->button2_text)
-                                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-2">
+                                <div class="flex flex-col sm:flex-row gap-1.5 sm:gap-3 lg:gap-4 justify-center items-center pt-1 sm:pt-2">
                                     @if($hero->button1_text && $hero->button1_url)
                                     <a href="{{ $hero->button1_url }}"
-                                       class="inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 {{ $hero->button1_style === 'outline' ? 'border-2 border-white bg-transparent text-white hover:bg-white hover:text-gray-900' : 'bg-blue-600 text-white hover:bg-blue-700' }} font-semibold text-sm sm:text-base rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200">
+                                       class="inline-flex items-center justify-center px-3 sm:px-5 lg:px-8 py-1.5 sm:py-2 lg:py-3 {{ $hero->button1_style === 'outline' ? 'border border-white bg-transparent text-white hover:bg-white hover:text-gray-900' : 'bg-blue-600 text-white hover:bg-blue-700' }} font-semibold text-xs sm:text-sm lg:text-base rounded-md shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 w-auto min-w-[120px] sm:min-w-[140px]">
                                         {{ $hero->button1_text }}
                                     </a>
                                     @endif
 
                                     @if($hero->button2_text && $hero->button2_url)
                                     <a href="{{ $hero->button2_url }}"
-                                       class="inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 {{ $hero->button2_style === 'outline' ? 'border-2 border-white bg-transparent text-white hover:bg-white hover:text-gray-900' : 'bg-blue-600 text-white hover:bg-blue-700' }} font-semibold text-sm sm:text-base rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200">
+                                       class="inline-flex items-center justify-center px-3 sm:px-5 lg:px-8 py-1.5 sm:py-2 lg:py-3 {{ $hero->button2_style === 'outline' ? 'border border-white bg-transparent text-white hover:bg-white hover:text-gray-900' : 'bg-blue-600 text-white hover:bg-blue-700' }} font-semibold text-xs sm:text-sm lg:text-base rounded-md shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 w-auto min-w-[120px] sm:min-w-[140px]">
                                         {{ $hero->button2_text }}
                                     </a>
                                     @endif
@@ -64,23 +64,23 @@
 
             <!-- Slider Controls -->
             @if($heroes->count() > 1)
-            <div class="absolute bottom-6 sm:bottom-8 left-0 right-0 z-20">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex items-center justify-center gap-6 lg:gap-8">
+            <div class="absolute bottom-3 sm:bottom-6 lg:bottom-8 left-0 right-0 z-20">
+                <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+                    <div class="flex items-center justify-center gap-2 sm:gap-4 lg:gap-8">
                         <!-- Previous Button -->
                         <button @click="currentSlide = currentSlide > 0 ? currentSlide - 1 : totalSlides - 1"
-                                class="p-2 sm:p-3 bg-white/80 hover:bg-white text-gray-800 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-200">
-                            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                class="p-1 sm:p-2 lg:p-3 bg-white/70 hover:bg-white text-gray-800 rounded-full shadow-md hover:shadow-lg transform hover:scale-110 transition-all duration-200 flex-shrink-0">
+                            <svg class="w-3.5 h-3.5 sm:w-5 sm:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                             </svg>
                         </button>
 
                         <!-- Navigation Dots -->
-                        <div class="flex space-x-2 sm:space-x-3">
+                        <div class="flex space-x-1 sm:space-x-2 lg:space-x-3">
                             @foreach($heroes as $index => $hero)
                             <button @click="currentSlide = {{ $index }}"
-                                    :class="{ 'bg-white w-8 sm:w-12': currentSlide === {{ $index }}, 'bg-white/50 w-2 sm:w-3': currentSlide !== {{ $index }} }"
-                                    class="h-2 sm:h-3 rounded-full transition-all duration-300 hover:bg-white/80"
+                                    :class="{ 'bg-white w-5 sm:w-8 lg:w-12': currentSlide === {{ $index }}, 'bg-white/50 w-1.5 sm:w-2 lg:w-3': currentSlide !== {{ $index }} }"
+                                    class="h-1.5 sm:h-2 lg:h-3 rounded-full transition-all duration-300 hover:bg-white/80"
                                     aria-label="Slide {{ $index + 1 }}">
                             </button>
                             @endforeach
@@ -88,8 +88,8 @@
 
                         <!-- Next Button -->
                         <button @click="currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0"
-                                class="p-2 sm:p-3 bg-white/80 hover:bg-white text-gray-800 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-200">
-                            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                class="p-1 sm:p-2 lg:p-3 bg-white/70 hover:bg-white text-gray-800 rounded-full shadow-md hover:shadow-lg transform hover:scale-110 transition-all duration-200 flex-shrink-0">
+                            <svg class="w-3.5 h-3.5 sm:w-5 sm:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
                         </button>

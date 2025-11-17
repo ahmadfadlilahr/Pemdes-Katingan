@@ -77,10 +77,8 @@ class OrganizationStructureController extends Controller
             $validated['photo'] = $photoPath;
         }
 
-        // Check if order exists and adjust if necessary
-        if (OrganizationStructure::orderExists($validated['order'])) {
-            OrganizationStructure::adjustOrdersForInsert($validated['order']);
-        }
+        // Allow duplicate order numbers for horizontal hierarchy
+        // No adjustment needed - same order means they are at the same level
 
         OrganizationStructure::create($validated);
 
@@ -128,15 +126,8 @@ class OrganizationStructureController extends Controller
             $validated['photo'] = $photoPath;
         }
 
-        $oldOrder = $structure->order;
-        $newOrder = $validated['order'];
-
-        // Adjust orders if position changed
-        if ($oldOrder !== $newOrder) {
-            if (OrganizationStructure::orderExists($newOrder, $structure->id)) {
-                OrganizationStructure::adjustOrdersForUpdate($oldOrder, $newOrder);
-            }
-        }
+        // Allow duplicate order numbers for horizontal hierarchy
+        // No adjustment needed - same order means they are at the same level
 
         $structure->update($validated);
 

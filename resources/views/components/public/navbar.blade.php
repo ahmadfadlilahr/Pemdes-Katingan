@@ -6,7 +6,7 @@
             <div class="flex items-center">
                 <a href="{{ route('home') }}" class="flex items-center space-x-3">
                     <img src="{{ asset('Logo_Dinas_PMD.png') }}" alt="Logo PMD" class="h-10 w-10">
-                    <div class="hidden sm:block">
+                    <div class="hidden lg:block">
                         <div class="text-lg font-bold text-gray-800">Dinas PMD</div>
                         <div class="text-xs text-gray-600">Kabupaten Katingan</div>
                     </div>
@@ -14,7 +14,7 @@
             </div>
 
             <!-- Desktop Navigation -->
-            <div class="hidden md:block">
+            <div class="hidden lg:block">
                 <div class="flex items-center space-x-8">
                     <a href="{{ route('home') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 {{ request()->routeIs('home') ? 'text-blue-600 border-b-2 border-blue-600' : '' }}">
                         Beranda
@@ -55,7 +55,7 @@
             </div>
 
             <!-- Mobile menu button -->
-            <div class="md:hidden">
+            <div class="lg:hidden">
                 <button @click="open = !open" class="text-gray-700 hover:text-blue-600 p-2">
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -67,7 +67,7 @@
     </div>
 
     <!-- Mobile Navigation -->
-    <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="md:hidden bg-white border-t border-gray-100">
+    <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="lg:hidden bg-white border-t border-gray-100">
         <div class="px-2 pt-2 pb-3 space-y-1">
             <a href="{{ route('home') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 {{ request()->routeIs('home') ? 'text-blue-600 bg-blue-50' : '' }}">
                 Beranda

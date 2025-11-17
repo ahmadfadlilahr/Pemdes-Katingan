@@ -378,7 +378,10 @@ class PublicController extends Controller
             ->ordered()
             ->get();
 
-        return view('public.organization-structure', compact('structures'));
+        // Group structures by order (hierarchy levels)
+        $groupedStructures = $structures->groupBy('order');
+
+        return view('public.organization-structure', compact('structures', 'groupedStructures'));
     }
 
     /**

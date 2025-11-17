@@ -80,12 +80,12 @@
             @endif
 
             <!-- Info Card below image -->
-            <div class="bg-white/10 backdrop-blur-sm rounded-lg px-6 py-4 max-w-2xl w-full">
-                <h3 class="text-lg sm:text-xl font-semibold text-black mb-2">{{ $gallery->title }}</h3>
+            <div class="bg-gray-900/90 backdrop-blur-md rounded-lg px-6 py-4 max-w-2xl w-full shadow-xl border border-white/10">
+                <h3 class="text-lg sm:text-xl font-semibold text-white mb-2 drop-shadow-lg">{{ $gallery->title }}</h3>
                 @if($gallery->description)
-                    <p class="text-black text-sm mb-3 line-clamp-3">{{ $gallery->description }}</p>
+                    <p class="text-gray-200 text-sm mb-3 line-clamp-3 drop-shadow">{{ $gallery->description }}</p>
                 @endif
-                <div class="flex items-center text-xs text-black">
+                <div class="flex items-center text-xs text-gray-300">
                     <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                     </svg>

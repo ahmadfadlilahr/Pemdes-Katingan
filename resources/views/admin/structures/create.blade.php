@@ -137,13 +137,21 @@
                                                    value="{{ old('order', $nextOrder) }}"
                                                    min="1"
                                                    required
-                                                   class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('order') @enderror">
+                                                   class="w-full rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 @error('order') border-red-300 @else @enderror">
                                             @error('order')
                                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                                             @enderror
-                                            <p class="text-xs text-gray-500 mt-1">
-                                                Angka terkecil akan tampil paling atas. Urutan selanjutnya yang tersedia: {{ $nextOrder }}
-                                            </p>
+                                            <div class="mt-2 space-y-1">
+                                                <p class="text-xs text-gray-600">
+                                                    📌 Urutan selanjutnya: <span class="font-semibold text-blue-600">{{ $nextOrder }}</span>
+                                                </p>
+                                                <p class="text-xs text-green-600 font-medium">
+                                                    ✅ Boleh gunakan nomor yang SAMA untuk bersanding sejajar!
+                                                </p>
+                                                <p class="text-xs text-gray-500">
+                                                    Contoh: 3 Kabid dengan urutan yang sama (misalnya: 3, 3, 3) akan ditampilkan horizontal dalam 1 baris.
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -193,27 +201,45 @@
                             <div class="space-y-4">
                                 <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
                                     <div class="flex">
-                                        <svg class="w-5 h-5 text-blue-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg class="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                         </svg>
                                         <div class="ml-3">
-                                            <h4 class="text-sm font-medium text-blue-900">Urutan Struktur</h4>
+                                            <h4 class="text-sm font-medium text-blue-900">Sistem Hierarki Baru</h4>
                                             <p class="text-sm text-blue-700 mt-1">
-                                                Angka urutan menentukan posisi tampil di struktur organisasi. Semakin kecil angka, semakin atas posisinya.
+                                                <span class="font-semibold">Urutan yang SAMA</span> akan ditampilkan <span class="font-semibold">sejajar horizontal</span> dalam satu baris.<br>
+                                                <span class="font-semibold">Urutan yang BERBEDA</span> akan membuat <span class="font-semibold">baris baru di bawahnya</span>.
                                             </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                                    <div class="flex">
+                                        <svg class="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                        </svg>
+                                        <div class="ml-3">
+                                            <h4 class="text-sm font-medium text-purple-900">Contoh Struktur</h4>
+                                            <ul class="text-sm text-purple-700 mt-2 space-y-1">
+                                                <li>• <span class="font-semibold">Urutan 1:</span> Kepala Dinas (sendiri)</li>
+                                                <li>• <span class="font-semibold">Urutan 2:</span> Sekretaris (sendiri)</li>
+                                                <li>• <span class="font-semibold">Urutan 3:</span> Kabid A, Kabid B, Kabid C (sejajar)</li>
+                                                <li>• <span class="font-semibold">Urutan 4:</span> Kasubbid X, Y, Z (sejajar)</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                                     <div class="flex">
-                                        <svg class="w-5 h-5 text-yellow-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg class="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
                                         </svg>
                                         <div class="ml-3">
-                                            <h4 class="text-sm font-medium text-yellow-900">Urutan Duplikat</h4>
+                                            <h4 class="text-sm font-medium text-yellow-900">Tips Penggunaan</h4>
                                             <p class="text-sm text-yellow-700 mt-1">
-                                                Jika menggunakan urutan yang sudah ada, sistem akan otomatis menggeser urutan yang lama ke bawah.
+                                                Gunakan <span class="font-semibold">urutan yang sama</span> untuk jabatan yang setara (contoh: beberapa Kabid). Gunakan <span class="font-semibold">urutan berbeda</span> untuk level hierarki yang berbeda.
                                             </p>
                                         </div>
                                     </div>
@@ -221,7 +247,7 @@
 
                                 <div class="bg-green-50 border border-green-200 rounded-lg p-4">
                                     <div class="flex">
-                                        <svg class="w-5 h-5 text-green-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                         </svg>
                                         <div class="ml-3">

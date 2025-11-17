@@ -52,15 +52,19 @@
                                 </div>
                             </div>
 
-                            <!-- Title -->
-                            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
-                                {{ $news->title }}
-                            </h1>
+                            <!-- Title - Protected -->
+                            <x-copy-protected-content>
+                                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                                    {{ $news->title }}
+                                </h1>
+                            </x-copy-protected-content>
 
-                            <!-- Content -->
-                            <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-                                {!! $news->content !!}
-                            </div>
+                            <!-- Content - Protected -->
+                            <x-copy-protected-content>
+                                <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                                    {!! $news->content !!}
+                                </div>
+                            </x-copy-protected-content>
 
                             <!-- Share Buttons -->
                             <div class="mt-10 pt-6 border-t border-gray-200">
