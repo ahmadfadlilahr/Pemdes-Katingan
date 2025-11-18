@@ -4,6 +4,7 @@ namespace App\Traits;
 
 use App\Models\ActivityLog;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Trait LogsActivity
@@ -40,18 +41,41 @@ trait LogsActivity
     /**
      * Log an activity.
      */
-    public function logActivity(string $action, string $description, array $properties = []): ActivityLog
+    public function logActivity(string $action, string $description, array $properties = []): ?ActivityLog
     {
-        return ActivityLog::create([
-            'user_id' => Auth::id(),
-            'action' => $action,
-            'description' => $description,
-            'model_type' => get_class($this),
-            'model_id' => $this->id ?? null,
-            'ip_address' => request()->ip(),
-            'user_agent' => request()->userAgent(),
-            'properties' => $properties,
-        ]);
+        try {
+            // Get user ID - support both web and API authentication
+            $userId = null;
+
+            // Try Sanctum (API) first
+            if (auth('sanctum')->check()) {
+                $userId = auth('sanctum')->id();
+            }
+            // Then try web auth
+            elseif (Auth::check()) {
+                $userId = Auth::id();
+            }
+            // Last resort: check request user
+            elseif (request()->user()) {
+                $userId = request()->user()->id;
+            }
+
+            return ActivityLog::create([
+                'user_id' => $userId,
+                'action' => $action,
+                'description' => $description,
+                'model_type' => get_class($this),
+                'model_id' => $this->id ?? null,
+                'ip_address' => request()->ip(),
+                'user_agent' => request()->userAgent(),
+                'properties' => $properties,
+            ]);
+        } catch (\Exception $e) {
+            // Silently fail to not break the main operation
+            // Log error if needed
+            Log::error('Activity logging failed: ' . $e->getMessage());
+            return null;
+        }
     }
 
     /**

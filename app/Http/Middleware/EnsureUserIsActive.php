@@ -22,6 +22,15 @@ class EnsureUserIsActive
 
             if ($user && !$user->is_active) {
                 Auth::logout();
+
+                // Return JSON for API requests
+                if ($request->expectsJson() || $request->is('api/*')) {
+                    return response()->json([
+                        'message' => 'Akun Anda telah dinonaktifkan. Silakan hubungi administrator.'
+                    ], 403);
+                }
+
+                // Redirect for web requests
                 return redirect()->route('login')->with('error', 'Akun Anda telah dinonaktifkan. Silakan hubungi administrator.');
             }
         }
