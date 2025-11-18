@@ -85,6 +85,14 @@ Route::middleware('auth')->group(function () {
         Route::resource('welcome-messages', \App\Http\Controllers\Admin\AdminWelcomeMessageController::class);
         Route::patch('welcome-messages/{welcomeMessage}/toggle-status', [\App\Http\Controllers\Admin\AdminWelcomeMessageController::class, 'toggleStatus'])->name('welcome-messages.toggle-status');
 
+        // Activity Log Routes
+        Route::get('activity-logs', [\App\Http\Controllers\Admin\ActivityLogController::class, 'index'])->name('activity-logs.index');
+        Route::get('activity-logs/{activityLog}', [\App\Http\Controllers\Admin\ActivityLogController::class, 'show'])->name('activity-logs.show');
+        Route::delete('activity-logs/{activityLog}', [\App\Http\Controllers\Admin\ActivityLogController::class, 'destroy'])->name('activity-logs.destroy');
+        Route::delete('activity-logs', [\App\Http\Controllers\Admin\ActivityLogController::class, 'bulkDestroy'])->name('activity-logs.bulk-destroy');
+        Route::post('activity-logs/clean', [\App\Http\Controllers\Admin\ActivityLogController::class, 'clean'])->name('activity-logs.clean');
+        Route::get('activity-logs-stats', [\App\Http\Controllers\Admin\ActivityLogController::class, 'statistics'])->name('activity-logs.statistics');
+
         // User Management Routes (Super Admin Only)
         Route::middleware('super-admin')->group(function () {
             Route::resource('users', \App\Http\Controllers\Admin\AdminUserController::class);
