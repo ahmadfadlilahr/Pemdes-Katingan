@@ -140,7 +140,9 @@
                     <!-- Image/Visual -->
                     <div class="relative">
                         <div class="relative z-10">
-                            <img src="{{ asset('Logo_Dinas_PMD.png') }}" alt="Logo Dinas PMD" class="w-48 h-48 lg:w-64 lg:h-64 mx-auto">
+                                                    <div class="flex-shrink-0">
+                            <img src="{{ asset('logo-dinas.png') }}" alt="Logo Dinas PMD" class="w-48 h-48 lg:w-64 lg:h-64 mx-auto">
+                        </div>
                         </div>
                         <!-- Background decoration -->
                         <div class="absolute inset-0 -z-10 bg-gradient-to-r from-blue-200 to-indigo-200 rounded-full opacity-20 transform scale-150"></div>

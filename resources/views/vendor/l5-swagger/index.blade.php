@@ -6,8 +6,8 @@
     <title>{{ $documentationTitle }}</title>
     <link rel="stylesheet" type="text/css" href="{{ l5_swagger_asset($documentation, 'swagger-ui.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/swagger-api/custom-swagger.css') }}">
-    <link rel="icon" type="image/png" href="{{ asset('Logo_Dinas_PMD.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('Logo_Dinas_PMD.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('logo-dinas.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('logo-dinas.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">

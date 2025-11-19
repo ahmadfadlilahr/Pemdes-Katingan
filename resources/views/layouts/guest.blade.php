@@ -7,11 +7,9 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Favicon -->
-        <link rel="icon" href="{{ asset('Logo_Dinas_PMD.png') }}" type="image/png">
-        <link rel="apple-touch-icon" href="{{ asset('Logo_Dinas_PMD.png') }}">
-
-        <!-- Fonts -->
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('logo-dinas.png') }}" type="image/png">
+    <link rel="apple-touch-icon" href="{{ asset('logo-dinas.png') }}">        <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 

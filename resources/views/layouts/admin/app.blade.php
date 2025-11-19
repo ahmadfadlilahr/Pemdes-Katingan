@@ -8,8 +8,8 @@
     <title>@yield('title', 'Admin Panel') - PMD Kabupaten Katingan</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('Logo_Dinas_PMD.png') }}" type="image/png">
-    <link rel="apple-touch-icon" href="{{ asset('Logo_Dinas_PMD.png') }}">
+    <link rel="icon" href="{{ asset('logo-dinas.png') }}" type="image/png">
+    <link rel="apple-touch-icon" href="{{ asset('logo-dinas.png') }}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">

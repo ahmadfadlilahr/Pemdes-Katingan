@@ -1,11 +1,11 @@
 <!-- Navbar -->
-<nav class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50" x-data="{ open: false }">
+<nav class="bg-white shadow-sm border-b border-gray-100" x-data="{ open: false }">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
             <!-- Logo -->
             <div class="flex items-center">
                 <a href="{{ route('home') }}" class="flex items-center space-x-3">
-                    <img src="{{ asset('Logo_Dinas_PMD.png') }}" alt="Logo PMD" class="h-10 w-10">
+                    <img src="{{ asset('logo-dinas.png') }}" alt="Logo PMD" class="h-10 w-10">
                     <div class="hidden lg:block">
                         <div class="text-lg font-bold text-gray-800">Dinas PMD</div>
                         <div class="text-xs text-gray-600">Kabupaten Katingan</div>

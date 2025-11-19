@@ -12,7 +12,7 @@
             <!-- Logo & Description -->
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center space-x-3 mb-4">
-                    <img src="{{ asset('Logo_Dinas_PMD.png') }}" alt="Logo PMD" class="h-12 w-12">
+                    <img src="{{ asset('logo-dinas.png') }}" alt="Logo PMD" class="h-12 w-12">
                     <div>
                         <div class="text-lg font-bold">Dinas PMD</div>
                         <div class="text-sm text-gray-300">Kabupaten Katingan</div>
