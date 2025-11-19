@@ -80,14 +80,14 @@
                                         Facebook
                                     </a>
 
-                                    <!-- Twitter -->
+                                    <!-- X (formerly Twitter) -->
                                     <a href="https://twitter.com/intent/tweet?url={{ urlencode(request()->fullUrl()) }}&text={{ urlencode($news->title) }}"
                                        target="_blank"
-                                       class="inline-flex items-center px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-lg transition-colors duration-200">
+                                       class="inline-flex items-center px-4 py-2 bg-black hover:bg-gray-900 text-white rounded-lg transition-colors duration-200">
                                         <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                                         </svg>
-                                        Twitter
+                                        X
                                     </a>
 
                                     <!-- WhatsApp -->
@@ -99,8 +99,44 @@
                                         </svg>
                                         WhatsApp
                                     </a>
+
+                                    <!-- Copy Link -->
+                                    <button onclick="copyToClipboard('{{ request()->fullUrl() }}', 'Link')"
+                                       class="inline-flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+                                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                        </svg>
+                                        Salin Link
+                                    </button>
                                 </div>
                             </div>
+
+                            <script>
+                            function copyToClipboard(text, platform) {
+                                navigator.clipboard.writeText(text).then(() => {
+                                    // Show success notification
+                                    const notification = document.createElement('div');
+                                    notification.className = 'fixed bottom-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-fade-in-up';
+                                    notification.innerHTML = `
+                                        <div class="flex items-center">
+                                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                            <span>${platform} berhasil disalin!</span>
+                                        </div>
+                                    `;
+                                    document.body.appendChild(notification);
+
+                                    // Remove notification after 3 seconds
+                                    setTimeout(() => {
+                                        notification.remove();
+                                    }, 3000);
+                                }).catch(err => {
+                                    console.error('Failed to copy:', err);
+                                    alert('Gagal menyalin link. Silakan coba lagi.');
+                                });
+                            }
+                            </script>
 
                         </div>
 
