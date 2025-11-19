@@ -1,10 +1,17 @@
 <aside class="admin-sidebar w-64 bg-white shadow-sm border-r border-gray-200 flex-shrink-0 lg:h-screen">
     <div class="flex flex-col h-full lg:h-screen">
         <!-- Logo -->
-                <div class="flex items-center justify-center p-4 border-b border-gray-700">
+        <div class="flex items-center justify-center h-20 px-4 bg-white border-b border-gray-200 flex-shrink-0">
             <div class="flex items-center space-x-3">
                 <img src="{{ asset('logo-dinas.png') }}"
-                     alt="Logo PMD"
+                     alt="Logo Dinas PMD"
+                     class="h-12 w-12 object-contain">
+                <div class="flex flex-col">
+                    <h1 class="text-sm font-bold text-gray-800 leading-tight">Dinas PMD</h1>
+                    <p class="text-xs text-gray-600">Kab. Katingan</p>
+                </div>
+            </div>
+        </div>
 
         <!-- Navigation -->
         <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
