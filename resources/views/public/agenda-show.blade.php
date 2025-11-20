@@ -85,6 +85,24 @@
                         <!-- Content Section -->
                         <div class="p-6 sm:p-8 lg:p-10">
 
+                            <!-- Featured Image Section -->
+                            @if($agenda->image)
+                            <div class="mb-8 pb-8 border-b border-gray-200">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                                    <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Gambar Agenda
+                                </h3>
+                                <div class="relative rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-50 to-indigo-50 aspect-video">
+                                    <img src="{{ Storage::url($agenda->image) }}"
+                                         alt="{{ $agenda->title }}"
+                                         class="w-full h-full object-contain"
+                                         loading="lazy">
+                                </div>
+                            </div>
+                            @endif
+
                             <!-- Location -->
                             @if($agenda->location)
                             <div class="mb-6 pb-6 border-b border-gray-200">
@@ -101,11 +119,44 @@
 
                             <!-- Description -->
                             @if($agenda->description)
-                            <div class="mb-8">
-                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Deskripsi Kegiatan</h3>
-                                <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                            <div class="mb-8 pb-8 border-b border-gray-200">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                                    <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
+                                    </svg>
+                                    Deskripsi Kegiatan
+                                </h3>
+                                <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed agenda-content">
                                     {!! $agenda->description !!}
                                 </div>
+                            </div>
+                            @endif
+
+                            <style>
+                                .agenda-content a {
+                                    color: #2563eb !important;
+                                    text-decoration: underline !important;
+                                    font-weight: 500 !important;
+                                    transition: color 0.2s ease !important;
+                                }
+                                .agenda-content a:hover {
+                                    color: #1e40af !important;
+                                }
+                            </style>
+
+                            <!-- Supporting Documents -->
+                            @if($agenda->document)
+                            <div class="mb-8 pb-8 border-b border-gray-200">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                                    <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Dokumen Pendukung
+                                </h3>
+                                <x-public.document-download
+                                    :documentPath="$agenda->document"
+                                    :title="$agenda->title"
+                                />
                             </div>
                             @endif
 
@@ -133,17 +184,53 @@
                                         WhatsApp
                                     </a>
 
-                                    <!-- Twitter -->
+                                    <!-- X (formerly Twitter) -->
                                     <a href="https://twitter.com/intent/tweet?url={{ urlencode(request()->fullUrl()) }}&text={{ urlencode($agenda->title) }}"
                                        target="_blank"
-                                       class="inline-flex items-center px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-lg transition-colors duration-200">
+                                       class="inline-flex items-center px-4 py-2 bg-black hover:bg-gray-900 text-white rounded-lg transition-colors duration-200">
                                         <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                                         </svg>
-                                        Twitter
+                                        X
                                     </a>
+
+                                    <!-- Copy Link -->
+                                    <button onclick="copyToClipboard('{{ request()->fullUrl() }}', 'Link')"
+                                       class="inline-flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+                                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                        </svg>
+                                        Salin Link
+                                    </button>
                                 </div>
                             </div>
+
+                            <script>
+                            function copyToClipboard(text, platform) {
+                                navigator.clipboard.writeText(text).then(() => {
+                                    // Show success notification
+                                    const notification = document.createElement('div');
+                                    notification.className = 'fixed bottom-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-fade-in-up';
+                                    notification.innerHTML = `
+                                        <div class="flex items-center">
+                                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                            <span>${platform} berhasil disalin!</span>
+                                        </div>
+                                    `;
+                                    document.body.appendChild(notification);
+
+                                    // Remove notification after 3 seconds
+                                    setTimeout(() => {
+                                        notification.remove();
+                                    }, 3000);
+                                }).catch(err => {
+                                    console.error('Failed to copy:', err);
+                                    alert('Gagal menyalin link. Silakan coba lagi.');
+                                });
+                            }
+                            </script>
 
                         </div>
 

@@ -23,15 +23,16 @@
 
                         <!-- Featured Image -->
                         @if($news->image)
-                        <div class="relative h-64 sm:h-96 overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50">
+                        <div class="relative rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-50 to-indigo-50 aspect-video m-6 sm:m-8 lg:m-10">
                             <img src="{{ Storage::url($news->image) }}"
                                  alt="{{ $news->title }}"
-                                 class="w-full h-full object-cover">
+                                 class="w-full h-full object-contain"
+                                 loading="lazy">
                         </div>
                         @endif
 
                         <!-- Article Content -->
-                        <div class="p-6 sm:p-8 lg:p-10">
+                        <div class="p-6 sm:p-8 lg:p-10 {{ $news->image ? 'pt-0' : '' }}"}
 
                             <!-- Meta Info -->
                             <div class="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-6 pb-6 border-b border-gray-200">
@@ -61,10 +62,22 @@
 
                             <!-- Content - Protected -->
                             <x-copy-protected-content>
-                                <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                                <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed news-content">
                                     {!! $news->content !!}
                                 </div>
                             </x-copy-protected-content>
+
+                            <style>
+                                .news-content a {
+                                    color: #2563eb !important;
+                                    text-decoration: underline !important;
+                                    font-weight: 500 !important;
+                                    transition: color 0.2s ease !important;
+                                }
+                                .news-content a:hover {
+                                    color: #1e40af !important;
+                                }
+                            </style>
 
                             <!-- Share Buttons -->
                             <div class="mt-10 pt-6 border-t border-gray-200">
