@@ -51,16 +51,16 @@
         />
     </div>
 
-    <!-- Content Grid -->
+
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        <!-- Recent News -->
+
         <x-admin.dashboard.recent-news :news="$recentNews" />
 
-        <!-- Quick Actions -->
+
         <x-admin.dashboard.quick-actions />
     </div>
 
-    <!-- Activity Log Widget - Full Width -->
+    
     <div class="mt-6">
         <x-activity-log-widget :limit="5" />
     </div>

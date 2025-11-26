@@ -1,16 +1,15 @@
-<!-- Quick Info -->
 <div class="mb-6 sm:mb-8">
     <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6">Informasi Cepat</h3>
 
-    <!-- Dynamic Contact Information -->
+
     <x-public.contact-quick-info :contact="$contact ?? null" />
 </div>
 
-<!-- Layanan Utama -->
+
 <div class="mb-6 sm:mb-8">
     <h4 class="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">Layanan Utama</h4>
     <div class="grid grid-cols-1 gap-2 sm:gap-3">
-        <!-- Service 1 -->
+
         <a href="{{ route('documents') }}" class="flex items-center p-3 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 group">
                 <div class="flex-shrink-0">
                     <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center group-hover:bg-purple-200 transition-colors duration-200">
@@ -28,7 +27,7 @@
                 </svg>
         </a>
 
-        <!-- Service 2 -->
+
         <a href="{{ route('kontak') }}" class="flex items-center p-3 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 group">
                 <div class="flex-shrink-0">
                     <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-200 transition-colors duration-200">
@@ -46,7 +45,7 @@
                 </svg>
         </a>
 
-        <!-- Service 3 -->
+
         <a href="{{ route('vision-mission') }}" class="flex items-center p-3 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 group">
                 <div class="flex-shrink-0">
                     <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center group-hover:bg-green-200 transition-colors duration-200">
@@ -65,7 +64,7 @@
                 </svg>
         </a>
 
-        <!-- Service 4 -->
+        
         <a href="{{ route('gallery') }}" class="flex items-center p-3 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 group">
                 <div class="flex-shrink-0">
                     <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center group-hover:bg-orange-200 transition-colors duration-200">

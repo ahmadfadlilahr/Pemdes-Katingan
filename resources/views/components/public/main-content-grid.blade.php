@@ -1,7 +1,6 @@
-<!-- Main Content Grid Layout -->
 <section class="py-16 lg:py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Section Header -->
+
         <div class="text-center mb-12">
             <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                 Berita & Agenda Terbaru
@@ -11,30 +10,30 @@
             </p>
         </div>
 
-        <!-- Grid Layout -->
+
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-            <!-- Left Column - Main Content (News & Events) -->
+
             <div class="lg:col-span-2 space-y-6 lg:space-y-8">
-                <!-- Latest News -->
+
                 <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-6 lg:p-8">
                     @include('components.public.latest-news')
                 </div>
 
-                <!-- Upcoming Events -->
+
                 <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-6 lg:p-8">
                     @include('components.public.upcoming-events')
                 </div>
             </div>
 
-            <!-- Right Column - Sidebar -->
+
             <div class="lg:col-span-1">
                 <div class="space-y-6 sticky top-4">
-                    <!-- Quick Info & Services -->
+
                     <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-6">
                         @include('components.public.quick-info', ['contact' => $contact ?? null])
                     </div>
 
-                    <!-- Dokumen Publik -->
+
                     <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-6">
                         <div class="flex items-center justify-between mb-4">
                             <h4 class="text-base sm:text-lg font-semibold text-gray-900">Dokumen Publik</h4>
@@ -94,7 +93,7 @@
                             @endforeach
                         </div>
                         @else
-                        <!-- Empty State -->
+                        
                         <div class="text-center py-8">
                             <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>

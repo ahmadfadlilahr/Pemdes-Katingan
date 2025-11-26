@@ -1,6 +1,6 @@
 <x-public-layout :title="$agenda->title . ' - Dinas PMD Kabupaten Katingan'" :description="Str::limit(strip_tags($agenda->description), 160)">
 
-    <!-- Page Header -->
+
     @include('components.public.page-header', [
         'title' => 'Detail Agenda',
         'subtitle' => null,
@@ -11,13 +11,13 @@
         ]
     ])
 
-    <!-- Main Content -->
+
     <section class="py-12 sm:py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
 
-                <!-- Main Content -->
+
                 <article class="lg:col-span-2">
                     <div class="bg-white rounded-xl shadow-md overflow-hidden">
 
@@ -41,10 +41,10 @@
                             }
                         @endphp
 
-                        <!-- Header Info -->
+
                         <div class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white p-6 sm:p-8">
 
-                            <!-- Status Badge -->
+
                             <div class="mb-4">
                                 <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-white/20 backdrop-blur-sm">
                                     <span class="w-2 h-2 rounded-full mr-2 bg-white {{ $status === 'ongoing' ? 'animate-pulse' : '' }}"></span>
@@ -52,15 +52,15 @@
                                 </span>
                             </div>
 
-                            <!-- Title -->
+
                             <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
                                 {{ $agenda->title }}
                             </h1>
 
-                            <!-- Date & Time Info Grid -->
+
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-                                <!-- Start Date -->
+
                                 <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
                                     <div class="text-xs uppercase tracking-wide mb-1 opacity-80">Tanggal Mulai</div>
                                     <div class="text-xl font-bold">{{ $startDate->format('d F Y') }}</div>
@@ -69,7 +69,7 @@
                                     @endif
                                 </div>
 
-                                <!-- End Date -->
+
                                 <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
                                     <div class="text-xs uppercase tracking-wide mb-1 opacity-80">Tanggal Selesai</div>
                                     <div class="text-xl font-bold">{{ $endDate->format('d F Y') }}</div>
@@ -82,10 +82,10 @@
 
                         </div>
 
-                        <!-- Content Section -->
+
                         <div class="p-6 sm:p-8 lg:p-10">
 
-                            <!-- Featured Image Section -->
+
                             @if($agenda->image)
                             <div class="mb-8 pb-8 border-b border-gray-200">
                                 <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
@@ -103,7 +103,7 @@
                             </div>
                             @endif
 
-                            <!-- Location -->
+
                             @if($agenda->location)
                             <div class="mb-6 pb-6 border-b border-gray-200">
                                 <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
@@ -117,7 +117,7 @@
                             </div>
                             @endif
 
-                            <!-- Description -->
+
                             @if($agenda->description)
                             <div class="mb-8 pb-8 border-b border-gray-200">
                                 <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
@@ -144,7 +144,7 @@
                                 }
                             </style>
 
-                            <!-- Supporting Documents -->
+
                             @if($agenda->document)
                             <div class="mb-8 pb-8 border-b border-gray-200">
                                 <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
@@ -160,11 +160,11 @@
                             </div>
                             @endif
 
-                            <!-- Share Buttons -->
+
                             <div class="mt-10 pt-6 border-t border-gray-200">
                                 <h4 class="text-lg font-semibold text-gray-900 mb-4">Bagikan Agenda Ini:</h4>
                                 <div class="flex flex-wrap gap-3">
-                                    <!-- Facebook -->
+
                                     <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->fullUrl()) }}"
                                        target="_blank"
                                        class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200">
@@ -174,7 +174,7 @@
                                         Facebook
                                     </a>
 
-                                    <!-- WhatsApp -->
+
                                     <a href="https://api.whatsapp.com/send?text={{ urlencode($agenda->title . ' - ' . request()->fullUrl()) }}"
                                        target="_blank"
                                        class="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors duration-200">
@@ -184,7 +184,7 @@
                                         WhatsApp
                                     </a>
 
-                                    <!-- X (formerly Twitter) -->
+
                                     <a href="https://twitter.com/intent/tweet?url={{ urlencode(request()->fullUrl()) }}&text={{ urlencode($agenda->title) }}"
                                        target="_blank"
                                        class="inline-flex items-center px-4 py-2 bg-black hover:bg-gray-900 text-white rounded-lg transition-colors duration-200">
@@ -194,7 +194,7 @@
                                         X
                                     </a>
 
-                                    <!-- Copy Link -->
+
                                     <button onclick="copyToClipboard('{{ request()->fullUrl() }}', 'Link')"
                                        class="inline-flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
                                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -208,7 +208,7 @@
                             <script>
                             function copyToClipboard(text, platform) {
                                 navigator.clipboard.writeText(text).then(() => {
-                                    // Show success notification
+
                                     const notification = document.createElement('div');
                                     notification.className = 'fixed bottom-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-fade-in-up';
                                     notification.innerHTML = `
@@ -221,7 +221,7 @@
                                     `;
                                     document.body.appendChild(notification);
 
-                                    // Remove notification after 3 seconds
+
                                     setTimeout(() => {
                                         notification.remove();
                                     }, 3000);
@@ -236,7 +236,7 @@
 
                     </div>
 
-                    <!-- Related Agenda -->
+
                     @if($relatedAgenda && $relatedAgenda->count() > 0)
                     <div class="mt-10">
                         <h3 class="text-2xl font-bold text-gray-900 mb-6">Agenda Terkait</h3>
@@ -250,11 +250,11 @@
 
                 </article>
 
-                <!-- Sidebar -->
+
                 <aside class="lg:col-span-1">
                     <div class="sticky top-4 space-y-6">
 
-                        <!-- Back to Agenda -->
+
                         <a href="{{ route('agenda') }}"
                            class="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -263,7 +263,7 @@
                             Kembali ke Agenda
                         </a>
 
-                        <!-- Upcoming Agenda Sidebar -->
+                        
                         @include('components.public.agenda-sidebar', [
                             'upcomingAgenda' => \App\Models\Agenda::where('is_active', true)
                                 ->where('id', '!=', $agenda->id)

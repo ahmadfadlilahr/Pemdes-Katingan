@@ -1,9 +1,9 @@
 @props(['contact'])
 
 @if($contact)
-<!-- Quick Contact Info Cards -->
+
 <div class="grid grid-cols-1 gap-3 sm:gap-4 mb-6 sm:mb-8">
-    <!-- Phone Number -->
+
     @if($contact->phone)
     <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-3 sm:p-4 border-l-4 border-blue-500 hover:shadow-md transition-shadow duration-200">
         <div class="flex items-center">
@@ -24,7 +24,7 @@
     </div>
     @endif
 
-    <!-- Email -->
+
     @if($contact->email)
     <div class="bg-gradient-to-r from-green-50 to-green-100 rounded-lg p-3 sm:p-4 border-l-4 border-green-500 hover:shadow-md transition-shadow duration-200">
         <div class="flex items-center">
@@ -45,7 +45,7 @@
     </div>
     @endif
 
-    <!-- WhatsApp (Optional) -->
+
     @if($contact->whatsapp)
     <div class="bg-gradient-to-r from-emerald-50 to-emerald-100 rounded-lg p-3 sm:p-4 border-l-4 border-emerald-500 hover:shadow-md transition-shadow duration-200">
         <div class="flex items-center">
@@ -68,9 +68,9 @@
 </div>
 
 @else
-<!-- Fallback - No Contact Data -->
+
 <div class="grid grid-cols-1 gap-3 sm:gap-4 mb-6 sm:mb-8">
-    <!-- Default Phone -->
+
     <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-3 sm:p-4 border-l-4 border-blue-500">
         <div class="flex items-center">
             <div class="flex-shrink-0">
@@ -87,7 +87,7 @@
         </div>
     </div>
 
-    <!-- Default Email -->
+    
     <div class="bg-gradient-to-r from-green-50 to-green-100 rounded-lg p-3 sm:p-4 border-l-4 border-green-500">
         <div class="flex items-center">
             <div class="flex-shrink-0">

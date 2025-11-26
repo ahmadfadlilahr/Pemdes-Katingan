@@ -1,6 +1,6 @@
 <x-public-layout :title="$document->title . ' - Dokumen Publik'" :description="Str::limit(strip_tags($document->description), 160)">
 
-    <!-- Page Header -->
+
     @include('components.public.page-header', [
         'title' => 'Detail Dokumen',
         'subtitle' => null,
@@ -12,7 +12,7 @@
     ])
 
     @php
-        // Determine icon based on file type
+
         $iconClass = match(strtolower($document->file_type ?? 'pdf')) {
             'pdf' => 'text-red-600',
             'doc', 'docx' => 'text-blue-600',
@@ -31,24 +31,24 @@
             default => 'from-gray-600 to-gray-700',
         };
 
-        // Check if file can be previewed in browser
+
         $canPreview = in_array(strtolower($document->file_type), ['pdf', 'jpg', 'jpeg', 'png', 'gif', 'webp']);
     @endphp
 
-    <!-- Main Content -->
+
     <section class="py-12 sm:py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
 
-                <!-- Main Content -->
+
                 <article class="lg:col-span-2">
                     <div class="bg-white rounded-xl shadow-md overflow-hidden">
 
-                        <!-- Document Header -->
+
                         <div class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white p-6 sm:p-8">
 
-                            <!-- File Type Badge -->
+
                             <div class="flex items-center justify-between mb-4">
                                 <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-white/20 backdrop-blur-sm uppercase text-white">
                                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -64,12 +64,12 @@
                                 @endif
                             </div>
 
-                            <!-- Title -->
+
                             <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-white">
                                 {{ $document->title }}
                             </h1>
 
-                            <!-- Meta Info -->
+
                             <div class="flex flex-wrap gap-4 text-sm text-white/90">
                                 <div class="flex items-center">
                                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -93,10 +93,10 @@
 
                         </div>
 
-                        <!-- Content Section -->
+
                         <div class="p-6 sm:p-8 lg:p-10">
 
-                            <!-- Description -->
+
                             @if($document->description)
                             <div class="mb-8">
                                 <h3 class="text-lg font-semibold text-gray-900 mb-4">Deskripsi Dokumen</h3>
@@ -136,7 +136,7 @@
                                 </div>
                             </div> --}}
 
-                            <!-- Document Info -->
+
                             <div class="border-t border-gray-200 pt-6">
                                 <h3 class="text-lg font-semibold text-gray-900 mb-4">Informasi File</h3>
                                 <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -173,7 +173,7 @@
 
                     </div>
 
-                    <!-- Related Documents -->
+
                     @if($relatedDocuments && $relatedDocuments->count() > 0)
                     <div class="mt-10">
                         <h3 class="text-2xl font-bold text-gray-900 mb-6">Dokumen Terkait</h3>
@@ -187,11 +187,11 @@
 
                 </article>
 
-                <!-- Sidebar -->
+
                 <aside class="lg:col-span-1">
                     <div class="sticky top-4 space-y-6">
 
-                        <!-- Back to Documents -->
+
                         <a href="{{ route('documents') }}"
                            class="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -200,7 +200,7 @@
                             Kembali ke Dokumen
                         </a>
 
-                        <!-- Quick Actions Card -->
+
                         <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl shadow-lg p-6 text-white">
                             <h4 class="font-semibold text-lg mb-4 flex items-center">
                                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -223,7 +223,7 @@
                             </div>
                         </div>
 
-                        <!-- Info Card -->
+                        
                         <div class="bg-blue-50 border border-blue-200 rounded-xl p-6">
                             <div class="flex items-start">
                                 <svg class="w-6 h-6 text-blue-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

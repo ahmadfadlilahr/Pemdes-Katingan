@@ -1,15 +1,14 @@
-<!-- Hero Section with Slider -->
 <section class="relative overflow-hidden">
     @if($heroes && $heroes->count() > 0)
-        <!-- Hero Slider -->
+
         <div class="hero-slider relative" x-data="{ currentSlide: 0, totalSlides: {{ $heroes->count() }} }">
-            <!-- Slides Container -->
+
             <div class="relative">
                 @foreach($heroes as $index => $hero)
                 <div class="hero-slide transition-opacity duration-700"
                      :class="{ 'opacity-100 z-10': currentSlide === {{ $index }}, 'opacity-0 z-0 absolute inset-0': currentSlide !== {{ $index }} }">
 
-                    <!-- Background Image -->
+
                     <div class="relative max-h-[500px] sm:max-h-[600px] lg:max-h-[700px] overflow-hidden">
                         @if($hero->image)
                         <img src="{{ Storage::url($hero->image) }}"
@@ -18,11 +17,11 @@
                         @else
                         <div class="w-full h-[500px] bg-gradient-to-br from-blue-500 to-indigo-600"></div>
                         @endif
-                        <!-- Overlay - Lebih gelap untuk kontras text -->
+
                         <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
                     </div>
 
-                    <!-- Content -->
+
                     <div class="absolute inset-0 z-10 flex items-end justify-center pb-12 sm:pb-16 lg:pb-20">
                         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full">
                             <div class="text-center max-w-4xl mx-auto space-y-1.5 sm:space-y-3 lg:space-y-5">
@@ -62,12 +61,12 @@
                 @endforeach
             </div>
 
-            <!-- Slider Controls -->
+
             @if($heroes->count() > 1)
             <div class="absolute bottom-3 sm:bottom-6 lg:bottom-8 left-0 right-0 z-20">
                 <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
                     <div class="flex items-center justify-center gap-2 sm:gap-4 lg:gap-8">
-                        <!-- Previous Button -->
+
                         <button @click="currentSlide = currentSlide > 0 ? currentSlide - 1 : totalSlides - 1"
                                 class="p-1 sm:p-2 lg:p-3 bg-white/70 hover:bg-white text-gray-800 rounded-full shadow-md hover:shadow-lg transform hover:scale-110 transition-all duration-200 flex-shrink-0">
                             <svg class="w-3.5 h-3.5 sm:w-5 sm:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,7 +74,7 @@
                             </svg>
                         </button>
 
-                        <!-- Navigation Dots -->
+
                         <div class="flex space-x-1 sm:space-x-2 lg:space-x-3">
                             @foreach($heroes as $index => $hero)
                             <button @click="currentSlide = {{ $index }}"
@@ -86,7 +85,7 @@
                             @endforeach
                         </div>
 
-                        <!-- Next Button -->
+
                         <button @click="currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0"
                                 class="p-1 sm:p-2 lg:p-3 bg-white/70 hover:bg-white text-gray-800 rounded-full shadow-md hover:shadow-lg transform hover:scale-110 transition-all duration-200 flex-shrink-0">
                             <svg class="w-3.5 h-3.5 sm:w-5 sm:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -97,7 +96,7 @@
                 </div>
             </div>
 
-            <!-- Auto Play -->
+
             <script>
                 document.addEventListener('alpine:init', () => {
                     let autoPlayInterval = setInterval(() => {
@@ -111,7 +110,7 @@
             @endif
         </div>
     @else
-        <!-- Default Hero (No Sliders) -->
+
         <div class="py-16 lg:py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -137,14 +136,14 @@
                         </div>
                     </div>
 
-                    <!-- Image/Visual -->
+
                     <div class="relative">
                         <div class="relative z-10">
                                                     <div class="flex-shrink-0">
                             <img src="{{ asset('logo-dinas.png') }}" alt="Logo Dinas PMD" class="w-48 h-48 lg:w-64 lg:h-64 mx-auto">
                         </div>
                         </div>
-                        <!-- Background decoration -->
+                        
                         <div class="absolute inset-0 -z-10 bg-gradient-to-r from-blue-200 to-indigo-200 rounded-full opacity-20 transform scale-150"></div>
                     </div>
                 </div>

@@ -1,8 +1,7 @@
-<!-- Quick Stats Section -->
 <section class="py-8 sm:py-12 bg-white border-b border-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-            <!-- Stat 1 - Total Berita -->
+
             <div class="text-center p-4 sm:p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl hover:shadow-lg transition-shadow duration-300">
                 <div class="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-blue-600 rounded-full mb-3 sm:mb-4">
                     <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -13,7 +12,7 @@
                 <p class="text-xs sm:text-sm text-gray-600 font-medium">Berita Terpublikasi</p>
             </div>
 
-            <!-- Stat 2 - Total Agenda -->
+
             <div class="text-center p-4 sm:p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-xl hover:shadow-lg transition-shadow duration-300">
                 <div class="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-green-600 rounded-full mb-3 sm:mb-4">
                     <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -24,7 +23,7 @@
                 <p class="text-xs sm:text-sm text-gray-600 font-medium">Agenda Kegiatan</p>
             </div>
 
-            <!-- Stat 3 - Total Galeri -->
+
             <div class="text-center p-4 sm:p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl hover:shadow-lg transition-shadow duration-300">
                 <div class="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-purple-600 rounded-full mb-3 sm:mb-4">
                     <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -35,7 +34,7 @@
                 <p class="text-xs sm:text-sm text-gray-600 font-medium">Foto Galeri</p>
             </div>
 
-            <!-- Stat 4 - Total Dokumen -->
+            
             <div class="text-center p-4 sm:p-6 bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl hover:shadow-lg transition-shadow duration-300">
                 <div class="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-orange-600 rounded-full mb-3 sm:mb-4">
                     <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

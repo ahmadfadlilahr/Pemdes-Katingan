@@ -1,5 +1,5 @@
 <x-public-layout>
-    <!-- Page Header -->
+
     <x-public.page-header
         title="Hubungi Kami"
         subtitle="Kami siap melayani pertanyaan, saran, dan masukan Anda"
@@ -23,7 +23,7 @@
             @endif
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
-                <!-- Contact Form -->
+
                 <div class="lg:col-span-2">
                     <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
                         <h2 class="text-2xl font-bold text-gray-900 mb-2">Kirim Pesan</h2>
@@ -32,7 +32,7 @@
                         <form action="{{ route('kontak.store') }}" method="POST" class="space-y-6">
                             @csrf
 
-                            <!-- Name -->
+
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
                                     Nama Lengkap <span class="text-red-500">*</span>
@@ -45,7 +45,7 @@
                                 @enderror
                             </div>
 
-                            <!-- Email -->
+
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
                                     Email <span class="text-red-500">*</span>
@@ -58,7 +58,7 @@
                                 @enderror
                             </div>
 
-                            <!-- Subject -->
+
                             <div>
                                 <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">
                                     Subjek <span class="text-red-500">*</span>
@@ -71,7 +71,7 @@
                                 @enderror
                             </div>
 
-                            <!-- Message -->
+
                             <div>
                                 <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
                                     Pesan <span class="text-red-500">*</span>
@@ -84,7 +84,7 @@
                                 @enderror
                             </div>
 
-                            <!-- Captcha -->
+
                             <div>
                                 <label for="captcha" class="block text-sm font-medium text-gray-700 mb-2">
                                     Verifikasi (Anti-Spam) <span class="text-red-500">*</span>
@@ -103,7 +103,7 @@
                                 <p class="mt-1 text-xs text-gray-500">Selesaikan perhitungan sederhana di atas untuk mencegah spam</p>
                             </div>
 
-                            <!-- Submit Button -->
+
                             <div class="pt-4">
                                 <button type="submit"
                                         class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 inline-flex items-center justify-center">
@@ -117,17 +117,17 @@
                     </div>
                 </div>
 
-                <!-- Contact Information Sidebar -->
+
                 <aside class="lg:col-span-1">
                     <div class="sticky top-4 space-y-6">
                         @if($contact)
-                            <!-- Contact Info Card -->
+
                             <div class="bg-white rounded-lg shadow-md p-6">
                                 <h3 class="text-lg font-bold text-gray-900 mb-4 pb-3 border-b border-gray-200">
                                     Informasi Kontak
                                 </h3>
                                 <div class="space-y-4">
-                                    <!-- Email -->
+
                                     <div class="flex items-start">
                                         <div class="flex-shrink-0">
                                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -141,7 +141,7 @@
                                     </div>
 
                                     @if($contact->phone)
-                                        <!-- Phone -->
+
                                         <div class="flex items-start">
                                             <div class="flex-shrink-0">
                                                 <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,7 +156,7 @@
                                     @endif
 
                                     @if($contact->whatsapp)
-                                        <!-- WhatsApp -->
+
                                         <div class="flex items-start">
                                             <div class="flex-shrink-0">
                                                 <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 24 24">
@@ -170,7 +170,7 @@
                                         </div>
                                     @endif
 
-                                    <!-- Address -->
+
                                     <div class="flex items-start pt-4 border-t border-gray-200">
                                         <div class="flex-shrink-0">
                                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -184,7 +184,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- Office Hours -->
+
                                     <div class="flex items-start">
                                         <div class="flex-shrink-0">
                                             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -200,7 +200,7 @@
                                 </div>
                             </div>
 
-                            <!-- Social Media Card -->
+
                             @if($contact->facebook || $contact->instagram || $contact->twitter || $contact->youtube)
                                 <div class="bg-white rounded-lg shadow-md p-6">
                                     <h3 class="text-lg font-bold text-gray-900 mb-4 pb-3 border-b border-gray-200">
@@ -239,7 +239,7 @@
                                 </div>
                             @endif
 
-                            <!-- Location Map -->
+                            
                             @if($contact->google_maps_embed)
                                 <div class="mt-6">
                                     <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center">

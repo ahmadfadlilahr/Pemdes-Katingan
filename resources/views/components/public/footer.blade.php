@@ -5,11 +5,10 @@
     });
 @endphp
 
-<!-- Footer -->
 <footer id="kontak" class="bg-gray-900 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <!-- Logo & Description -->
+
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center space-x-3 mb-4">
                     <img src="{{ asset('logo-dinas.png') }}" alt="Logo PMD" class="h-12 w-12">
@@ -22,11 +21,11 @@
                     Dinas Pemberdayaan Masyarakat dan Desa Kabupaten Katingan berkomitmen untuk mewujudkan masyarakat dan desa yang mandiri, sejahtera, dan berkelanjutan.
                 </p>
 
-                <!-- Dynamic Social Media -->
+
                 <x-public.footer-social-media :contact="$footerContact ?? null" />
             </div>
 
-            <!-- Quick Links -->
+
             <div>
                 <h3 class="text-lg font-semibold mb-4">Menu Utama</h3>
                 <ul class="space-y-2">
@@ -40,15 +39,15 @@
                 </ul>
             </div>
 
-            <!-- Contact Info -->
+
             <div>
-                <!-- Dynamic Contact Information -->
+
                 <x-public.footer-contact :contact="$footerContact ?? null" />
             </div>
         </div>
     </div>
 
-    <!-- Bottom Footer -->
+    
     <div class="border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">

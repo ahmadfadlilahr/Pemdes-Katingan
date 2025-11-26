@@ -1,6 +1,6 @@
 <x-public-layout title="Dokumen Publik - Dinas PMD Kabupaten Katingan" description="Akses berbagai dokumen publik, regulasi, dan informasi resmi dari Dinas Pemberdayaan Masyarakat dan Desa Kabupaten Katingan">
 
-    <!-- Page Header -->
+
     @include('components.public.page-header', [
         'title' => 'Dokumen Publik',
         'subtitle' => 'Akses dan unduh berbagai dokumen, regulasi, dan informasi resmi',
@@ -10,19 +10,19 @@
         ]
     ])
 
-    <!-- Main Content -->
+
     <section class="py-12 sm:py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
 
-                <!-- Main Content -->
+
                 <div class="lg:col-span-2">
 
-                    <!-- Search & Filter -->
+
                     @include('components.public.document-search', ['categories' => $categories])
 
-                    <!-- Document Grid -->
+
                     @if($documents->count() > 0)
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
                             @foreach($documents as $document)
@@ -30,12 +30,12 @@
                             @endforeach
                         </div>
 
-                        <!-- Pagination -->
+
                         <div class="mt-8">
                             {{ $documents->links() }}
                         </div>
                     @else
-                        <!-- Empty State -->
+
                         @include('components.public.empty-state', [
                             'icon' => 'document',
                             'title' => 'Dokumen Tidak Ditemukan',
@@ -47,11 +47,11 @@
 
                 </div>
 
-                <!-- Sidebar -->
+
                 <aside class="lg:col-span-1">
                     <div class="sticky top-4 space-y-6">
 
-                        <!-- Stats Card -->
+
                         <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl shadow-lg p-6 text-white">
                             <div class="flex items-center mb-4">
                                 <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -67,10 +67,10 @@
                             </p>
                         </div>
 
-                        <!-- Popular Documents -->
+
                         @include('components.public.document-sidebar', ['popularDocuments' => $popularDocuments])
 
-                        <!-- Info Card -->
+
                         <div class="bg-blue-50 border border-blue-200 rounded-xl p-6">
                             <div class="flex items-start">
                                 <svg class="w-6 h-6 text-blue-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -85,7 +85,7 @@
                             </div>
                         </div>
 
-                        <!-- Category Legend (if categories exist) -->
+                        
                         @if($categories && $categories->count() > 0)
                         <div class="bg-white rounded-xl shadow-md p-6">
                             <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center">

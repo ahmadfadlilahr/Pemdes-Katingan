@@ -1,4 +1,3 @@
-<!-- Back to Top Button -->
 <div x-data="backToTop()"
      x-show="showButton"
      x-transition:enter="transition ease-out duration-300"
