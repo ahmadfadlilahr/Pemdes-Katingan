@@ -36,16 +36,16 @@
                         </div>
                     </div>
 
-                    <a href="{{ route('news') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
+                    <a href="{{ route('news') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 {{ request()->routeIs('news') || request()->routeIs('news.show') ? 'text-blue-600 border-b-2 border-blue-600' : '' }}">
                         Berita
                     </a>
-                    <a href="{{ route('agenda') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
+                    <a href="{{ route('agenda') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 {{ request()->routeIs('agenda') || request()->routeIs('agenda.show') ? 'text-blue-600 border-b-2 border-blue-600' : '' }}">
                         Agenda
                     </a>
-                    <a href="{{ route('documents') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
+                    <a href="{{ route('documents') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 {{ request()->routeIs('documents') || request()->routeIs('documents.show') ? 'text-blue-600 border-b-2 border-blue-600' : '' }}">
                         Dokumen
                     </a>
-                    <a href="{{ route('gallery') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
+                    <a href="{{ route('gallery') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 {{ request()->routeIs('gallery') || request()->routeIs('gallery.show') ? 'text-blue-600 border-b-2 border-blue-600' : '' }}">
                         Galeri
                     </a>
                     <a href="{{ route('kontak') }}" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 {{ request()->routeIs('kontak') ? 'text-blue-600 border-b-2 border-blue-600' : '' }}">
@@ -87,10 +87,10 @@
                 </div>
             </div>
 
-            <a href="{{ route('news') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Berita</a>
-            <a href="{{ route('agenda') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Agenda</a>
-            <a href="{{ route('documents') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Dokumen</a>
-            <a href="{{ route('gallery') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Galeri</a>
+            <a href="{{ route('news') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 {{ request()->routeIs('news') || request()->routeIs('news.show') ? 'text-blue-600 bg-blue-50' : '' }}">Berita</a>
+            <a href="{{ route('agenda') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 {{ request()->routeIs('agenda') || request()->routeIs('agenda.show') ? 'text-blue-600 bg-blue-50' : '' }}">Agenda</a>
+            <a href="{{ route('documents') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 {{ request()->routeIs('documents') || request()->routeIs('documents.show') ? 'text-blue-600 bg-blue-50' : '' }}">Dokumen</a>
+            <a href="{{ route('gallery') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 {{ request()->routeIs('gallery') || request()->routeIs('gallery.show') ? 'text-blue-600 bg-blue-50' : '' }}">Galeri</a>
             <a href="{{ route('kontak') }}" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 {{ request()->routeIs('kontak') ? 'text-blue-600 bg-blue-50' : '' }}">Kontak</a>
         </div>
     </div>
